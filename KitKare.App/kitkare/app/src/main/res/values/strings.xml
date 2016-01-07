@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">KitKare</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tvMainWelcomeMessage">Welcome to KitKare</string>
+    <string name="tvMainWelcomeText">Take care of your cat no matter where you are!</string>
+    <string name="tvMainLogin">Login</string>
+    <string name="tvMainRegister">Register</string>
+
+    <string name="tvMainLabelEmail">Email</string>
+    <string name="tvMainLabelPassword">Password</string>
+    <string name="tvMainLabelConfirmPassword">Confirm Password</string>
+
+    <string name="tvHasAccount">Already have an account?</string>
+    <string name="tvDoesNotHaveAccount">Don\'t have an account yet?</string>
+
+    <string name="btnMainLogin"><i>Login</i></string>
+    <string name="btnMainRegister">Register</string>
+</resources>
