@@ -11,16 +11,30 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import kitkare.kitkare.app.common.Validator;
+import kitkare.kitkare.app.services.AccountService;
 import kitkare.kitkare.app.views.partials.LoginFragment;
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.views.partials.MainFragment;
 import kitkare.kitkare.app.views.partials.RegisterFragment;
 
 public class MainActivity extends AppCompatActivity {
+    public AccountService accountService;
+    public Validator validator;
+
+    public MainActivity(){
+        this(new AccountService());
+    }
+
+    public MainActivity(AccountService accountService){
+        this.accountService = accountService;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        validator = new Validator(this);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

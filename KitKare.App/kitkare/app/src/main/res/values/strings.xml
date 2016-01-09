@@ -19,4 +19,7 @@
 
     <string name="btnMainLogin"><i>Login</i></string>
     <string name="btnMainRegister">Register</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="tvDashboard">Dashboard</string>
+    <string name="title_activity_test">TestActivity</string>
 </resources>

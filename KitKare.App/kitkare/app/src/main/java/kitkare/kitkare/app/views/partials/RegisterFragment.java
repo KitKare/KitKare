@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.common.Validator;
 import kitkare.kitkare.app.services.AccountService;
+import kitkare.kitkare.app.tasks.LoginTask;
 import kitkare.kitkare.app.tasks.RegisterTask;
 import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
 import kitkare.kitkare.app.views.MainActivity;
@@ -33,9 +34,9 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     static EditText email, password, confirmPassword;
     static Button btnLogin, btnRegister;
     Context context;
-    AccountService accountService;
+    //AccountService accountService;
     MainActivity mainActivity;
-    Validator validator;
+    //Validator validator;
 
     public RegisterFragment() {
     }
@@ -48,8 +49,8 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
         this.context = container.getContext();
         this.mainActivity = (MainActivity) this.context;
-        this.accountService = new AccountService();
-        this.validator = new Validator(this.context);
+        //this.accountService = new AccountService();
+        //this.validator = new Validator(this.context);
 
         //EditText views
         email = (EditText) rootView.findViewById(R.id.etLoginEmail);
@@ -80,15 +81,16 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         String passwordText = password.getText().toString();
         String confirmPasswordText = confirmPassword.getText().toString();
 
-        boolean isValidaEmail = validator.validateEmail(emailText);
-        boolean isPasswordValid = validator.validatePassword(passwordText, confirmPasswordText);
+        boolean isValidaEmail = this.mainActivity.validator.validateEmail(emailText);
+        boolean isPasswordValid = this.mainActivity.validator.validatePassword(passwordText, confirmPasswordText);
 
-        RegisterUserViewModel user = null;
-        if (isPasswordValid && isValidaEmail) {
-            user = new RegisterUserViewModel(emailText, passwordText, confirmPasswordText);
+        if (!(isPasswordValid && isValidaEmail)){
+            return;
         }
 
-        RegisterTask registerTask = new RegisterTask(this.context, this.accountService, user);
+        RegisterUserViewModel user = new RegisterUserViewModel(emailText, passwordText, confirmPasswordText);
+
+        RegisterTask registerTask = new RegisterTask(this.context, this.mainActivity.accountService, user);
         registerTask.execute();
     }
 }

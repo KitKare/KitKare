@@ -8,6 +8,7 @@ import com.squareup.okhttp.Response;
 
 import java.io.IOException;
 
+import kitkare.kitkare.app.viewModels.LoginViewModel;
 import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
 
 public class AccountService {
@@ -34,4 +35,28 @@ public class AccountService {
 
         return response.body().string();
     }
+
+    public String login(String url, LoginViewModel user) throws Exception {
+        FormEncodingBuilder builder = new FormEncodingBuilder()
+                .add("username", user.username)
+                .add("password", user.password)
+                .add("grant_type", "password");
+
+        RequestBody body = builder.build();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        if (!response.isSuccessful()) {
+            throw new IOException("Oops, something went wrong! " + response);
+        }
+
+        return response.body().string();
+    }
+
+    //TODO: extract common logic
 }

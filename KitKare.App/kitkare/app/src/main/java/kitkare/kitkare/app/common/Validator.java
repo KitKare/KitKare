@@ -21,10 +21,7 @@ public class Validator {
 
         boolean isMatch = matcher.find();
         if (isMatch == false) {
-            Toast.makeText(
-                    this.context,
-                    "Please enter a valid email.",
-                    Toast.LENGTH_SHORT).show();
+            Helper.makeText(this.context, "Please enter a valid email.");
         }
 
         return isMatch;
@@ -32,16 +29,19 @@ public class Validator {
 
     public boolean validatePassword(String password, String confirmPassword) {
         if (password.isEmpty() || confirmPassword.isEmpty()) {
-            Toast.makeText(
-                    this.context,
-                    "Please type a password.",
-                    Toast.LENGTH_SHORT).show();
+            Helper.makeText(this.context, "Please type a password.");
             return false;
         } else if (password.compareTo(confirmPassword) != 0) {
-            Toast.makeText(
-                    this.context,
-                    "Password does not match the confirm password.",
-                    Toast.LENGTH_SHORT).show();
+            Helper.makeText(this.context, "Password does not match the confirm password.");
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean validateString(String str, String message) {
+        if (str.isEmpty()) {
+            Helper.makeText(this.context, message);
             return false;
         }
 

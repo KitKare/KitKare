@@ -12,16 +12,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import kitkare.kitkare.R;
+import kitkare.kitkare.app.common.Validator;
+import kitkare.kitkare.app.services.AccountService;
+import kitkare.kitkare.app.tasks.LoginTask;
+import kitkare.kitkare.app.viewModels.LoginViewModel;
+import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
 import kitkare.kitkare.app.views.MainActivity;
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class LoginFragment extends Fragment implements View.OnClickListener {
-    static EditText email, password, confirmPassword, phoneNumber;
+    static EditText email, password;
     static Button btnLogin, btnRegister;
     Context context;
     MainActivity mainActivity;
+    //AccountService accountService;
+    //Validator validator;
 
     public LoginFragment() {
     }
@@ -34,6 +41,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         this.context = container.getContext();
         this.mainActivity = (MainActivity) this.context;
+        //this.accountService = new AccountService();
+        //this.validator = new Validator(this.context);
 
         //EditText views
         email = (EditText) view.findViewById(R.id.etLoginEmail);
@@ -50,32 +59,29 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         //return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
-    public void loginUser(String emailText, String passwordText) {
-
-        if (passwordText == "") {
-            Toast.makeText(
-                    this.context,
-                    "Please type a password.",
-                    Toast.LENGTH_SHORT).show();
-        } else if (emailText == "") {
-            Toast.makeText(
-                    this.context,
-                    "Please type email.",
-                    Toast.LENGTH_SHORT).show();
-        }
-
-//        LoginTask loginTask = new LoginTask(this.context);
-//        loginTask.execute(emailText, passwordText);
-    }
-
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnRegister) {
             this.mainActivity.loadRegister();
         } else if (v.getId() == R.id.btnLogin) {
-            String emailText = email.getText().toString();
-            String passwordText = password.getText().toString();
-            this.loginUser(emailText, passwordText);
+            this.loginUser();
         }
+    }
+
+    private void loginUser() {
+        String emailText = email.getText().toString();
+        String passwordText = password.getText().toString();
+
+        boolean isUsernameValid = this.mainActivity.validator.validateString(emailText, "Please type email.");
+        boolean isPasswordValid = this.mainActivity.validator.validateString(passwordText, "Please type a password.");
+
+        if (!isUsernameValid || !isPasswordValid){
+            return;
+        }
+
+        LoginViewModel user = new LoginViewModel(emailText, passwordText);
+
+        LoginTask loginTask = new LoginTask(this.context, this.mainActivity.accountService, user);
+        loginTask.execute();
     }
 }
