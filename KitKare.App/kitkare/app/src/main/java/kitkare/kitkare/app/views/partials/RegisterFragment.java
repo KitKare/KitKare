@@ -1,7 +1,6 @@
-package kitkare.kitkare.views.partials;
+package kitkare.kitkare.app.views.partials;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 //import android.support.v4.app.Fragment;
@@ -13,7 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import kitkare.kitkare.R;
-import kitkare.kitkare.views.MainActivity;
+import kitkare.kitkare.app.services.AccountService;
+import kitkare.kitkare.app.tasks.RegisterTask;
+import kitkare.kitkare.app.views.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +28,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     static EditText email, password, confirmPassword;
     static Button btnLogin, btnRegister;
     Context context;
+    AccountService accountService;
     MainActivity mainActivity;
 
     public RegisterFragment() {
@@ -40,6 +42,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
         this.context = container.getContext();
         this.mainActivity = (MainActivity) this.context;
+        this.accountService = new AccountService();
 
         //EditText views
         email = (EditText) rootView.findViewById(R.id.etLoginEmail);
@@ -74,8 +77,8 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
             return;
         }
 
-//        RegisterTask registerTask = new RegisterTask(this.context);
-//        registerTask.execute(emailText, passwordText, confirmPasswordText);
+        RegisterTask registerTask = new RegisterTask(this.context, this.accountService);
+        registerTask.execute(emailText, passwordText, confirmPasswordText);
     }
 
     @Override

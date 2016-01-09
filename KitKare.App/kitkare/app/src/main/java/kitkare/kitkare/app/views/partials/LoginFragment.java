@@ -1,4 +1,4 @@
-package kitkare.kitkare;
+package kitkare.kitkare.app.views.partials;
 
 import android.content.Context;
 //import android.support.v4.app.Fragment;
@@ -11,7 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import kitkare.kitkare.views.MainActivity;
+import kitkare.kitkare.R;
+import kitkare.kitkare.app.views.MainActivity;
 
 /**
  * A placeholder fragment containing a simple view.

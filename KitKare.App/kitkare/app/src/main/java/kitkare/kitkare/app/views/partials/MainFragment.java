@@ -1,7 +1,6 @@
-package kitkare.kitkare.views.partials;
+package kitkare.kitkare.app.views.partials;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 //import android.support.v4.app.Fragment;
 import android.app.Fragment;
@@ -11,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import kitkare.kitkare.R;
-import kitkare.kitkare.views.MainActivity;
+import kitkare.kitkare.app.views.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -1,4 +1,4 @@
-package kitkare.kitkare.views;
+package kitkare.kitkare.app.views;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -11,10 +11,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import kitkare.kitkare.LoginFragment;
+import kitkare.kitkare.app.views.partials.LoginFragment;
 import kitkare.kitkare.R;
-import kitkare.kitkare.views.partials.MainFragment;
-import kitkare.kitkare.views.partials.RegisterFragment;
+import kitkare.kitkare.app.views.partials.MainFragment;
+import kitkare.kitkare.app.views.partials.RegisterFragment;
 
 public class MainActivity extends AppCompatActivity {
 
