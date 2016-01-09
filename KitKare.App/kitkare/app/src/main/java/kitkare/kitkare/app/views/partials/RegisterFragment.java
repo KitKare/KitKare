@@ -11,9 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import kitkare.kitkare.R;
+import kitkare.kitkare.app.common.Validator;
 import kitkare.kitkare.app.services.AccountService;
 import kitkare.kitkare.app.tasks.RegisterTask;
+import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
 import kitkare.kitkare.app.views.MainActivity;
 
 /**
@@ -30,6 +35,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     Context context;
     AccountService accountService;
     MainActivity mainActivity;
+    Validator validator;
 
     public RegisterFragment() {
     }
@@ -43,6 +49,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         this.context = container.getContext();
         this.mainActivity = (MainActivity) this.context;
         this.accountService = new AccountService();
+        this.validator = new Validator(this.context);
 
         //EditText views
         email = (EditText) rootView.findViewById(R.id.etLoginEmail);
@@ -59,28 +66,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         return rootView;
     }
 
-    private void registerUser() {
-        String emailText = email.getText().toString();
-        String passwordText = password.getText().toString();
-        String confirmPasswordText = confirmPassword.getText().toString();
-
-        if (passwordText == "" || confirmPasswordText == "") {
-            Toast.makeText(
-                    this.context,
-                    "Please type a password.",
-                    Toast.LENGTH_SHORT).show();
-        } else if (passwordText.compareTo(confirmPasswordText) != 0) {
-            Toast.makeText(
-                    this.context,
-                    "Password does not match the confirm password.",
-                    Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        RegisterTask registerTask = new RegisterTask(this.context, this.accountService);
-        registerTask.execute(emailText, passwordText, confirmPasswordText);
-    }
-
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnLogin) {
@@ -88,5 +73,22 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         } else if (v.getId() == R.id.btnRegister) {
             this.registerUser();
         }
+    }
+
+    private void registerUser() {
+        String emailText = email.getText().toString();
+        String passwordText = password.getText().toString();
+        String confirmPasswordText = confirmPassword.getText().toString();
+
+        boolean isValidaEmail = validator.validateEmail(emailText);
+        boolean isPasswordValid = validator.validatePassword(passwordText, confirmPasswordText);
+
+        RegisterUserViewModel user = null;
+        if (isPasswordValid && isValidaEmail) {
+            user = new RegisterUserViewModel(emailText, passwordText, confirmPasswordText);
+        }
+
+        RegisterTask registerTask = new RegisterTask(this.context, this.accountService, user);
+        registerTask.execute();
     }
 }
