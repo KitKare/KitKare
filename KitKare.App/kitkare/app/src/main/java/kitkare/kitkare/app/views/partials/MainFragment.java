@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import kitkare.kitkare.R;
+import kitkare.kitkare.app.common.Helper;
+import kitkare.kitkare.app.common.OnSwipeTouchListener;
 import kitkare.kitkare.app.views.MainActivity;
+import kitkare.kitkare.app.views.partials.account.RegisterFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +36,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 //
 //    private OnFragmentInteractionListener mListener;
     static Button btnLogin, btnRegister;
+    static ImageView mainImage;
     MainActivity mainActivity;
     Context context;
 
@@ -80,8 +85,22 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         btnLogin = (Button) view.findViewById(R.id.btnLogin);
         btnRegister = (Button) view.findViewById(R.id.btnRegister);
 
+        mainImage = (ImageView) view.findViewById(R.id.imageMain);
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
+
+
+        mainImage.setOnTouchListener(new OnSwipeTouchListener(context) {
+            @Override
+            public void onSwipeRight() {
+                mainActivity.loadRegister();
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                mainActivity.loadLogin();
+            }
+        });
         return view;
         //return inflater.inflate(R.layout.fragment_main, container, false);
     }

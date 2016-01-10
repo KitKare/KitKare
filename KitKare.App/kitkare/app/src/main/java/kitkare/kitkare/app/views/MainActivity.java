@@ -130,4 +130,10 @@ public class MainActivity extends AppCompatActivity {
         ft.setCustomAnimations(R.animator.fragment_slide_left, R.animator.fragment_slide_right);
         ft.add(R.id.container, fragment).addToBackStack("tag").commit();
     }
+
+    public void getFragment(Fragment fragment, int enter, int exit){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(enter, exit);
+        ft.add(R.id.container, fragment).addToBackStack("tag").commit();
+    }
 }
