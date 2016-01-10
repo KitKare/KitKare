@@ -20,6 +20,13 @@ public class SaveSharedPreference
         editor.commit();
     }
 
+    public static void removeUserName(Context ctx)
+    {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.remove(PREF_USER_NAME);
+        editor.commit();
+    }
+
     public static String getUserName(Context ctx)
     {
         return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
