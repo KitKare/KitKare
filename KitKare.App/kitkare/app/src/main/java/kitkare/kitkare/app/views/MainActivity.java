@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getFragment(Fragment fragment){
         FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.animator.fragment_slide_left, R.animator.fragment_slide_right);
         ft.add(R.id.container, fragment).addToBackStack("tag").commit();
     }
 }

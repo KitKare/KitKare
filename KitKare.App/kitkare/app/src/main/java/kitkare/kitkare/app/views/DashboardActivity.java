@@ -19,6 +19,7 @@ import kitkare.kitkare.app.common.Helper;
 import kitkare.kitkare.app.common.SaveSharedPreference;
 import kitkare.kitkare.app.dataModels.UserData;
 import kitkare.kitkare.app.services.AccountService;
+import kitkare.kitkare.app.views.partials.account.LoginFragment;
 import kitkare.kitkare.app.views.partials.dashboard.DashboardFragment;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -38,6 +39,14 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        if(SaveSharedPreference.getUserName(context).length() == 0)
+        {
+            Intent intent = new Intent(context, MainActivity.class);
+            startActivity(intent);
+            this.getFragment(new LoginFragment());
+            this.finish();
+        }
 
 //        String pageTitle = getResources().getString(R.string.app_name) + ": " + getResources().getString(R.string.tvDashboard);
 //        this.setTitle(pageTitle);
@@ -93,6 +102,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     public void getFragment(Fragment fragment) {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.animator.fragment_slide_left, R.animator.fragment_slide_right);
         ft.add(R.id.container, fragment).addToBackStack("tag").commit();
     }
 }
