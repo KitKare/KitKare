@@ -27,9 +27,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     static EditText email, password, confirmPassword;
     static Button btnLogin, btnRegister;
     Context context;
-    //AccountService accountService;
     MainActivity mainActivity;
-    //Validator validator;
 
     public RegisterFragment() {
     }

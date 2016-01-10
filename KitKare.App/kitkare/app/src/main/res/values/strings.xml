@@ -10,6 +10,7 @@
     <string name="tvMainLogin">Login</string>
     <string name="tvMainRegister">Register</string>
     <string name="tvDashboard">Dashboard</string>
+    <string name="tvFeed">Feed</string>
 
     <string name="tvMainLabelEmail">Email</string>
     <string name="tvMainLabelPassword">Password</string>

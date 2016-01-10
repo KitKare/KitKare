@@ -11,18 +11,18 @@ import android.view.ViewGroup;
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.views.DashboardActivity;
 
-public class FeedFragment extends Fragment {
+public class VetFragment extends Fragment {
     Context context;
     DashboardActivity dashboardActivity;
 
-    public FeedFragment() {
+    public VetFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_feed, container,
+        View view = inflater.inflate(R.layout.fragment_vet, container,
                 false);
 
         this.context = container.getContext();
