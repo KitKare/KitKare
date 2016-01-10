@@ -25,4 +25,6 @@
     <string name="btnCamera">Camera</string>
     <string name="btnVet">Vet History</string>
     <string name="action_logout">Logout</string>
+    <string name="action_login">Login</string>
+    <string name="action_register">Register</string>
 </resources>

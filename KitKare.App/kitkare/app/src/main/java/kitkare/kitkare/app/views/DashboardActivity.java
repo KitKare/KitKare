@@ -22,6 +22,8 @@ import kitkare.kitkare.app.services.AccountService;
 import kitkare.kitkare.app.views.partials.dashboard.DashboardFragment;
 
 public class DashboardActivity extends AppCompatActivity {
+    private final Context context = this;
+
     public AccountService accountService;
 
     public DashboardActivity() {
@@ -55,6 +57,12 @@ public class DashboardActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             this.getFragment(new DashboardFragment());
         }
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        Helper.prepareOptionsMenu(menu, context);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
