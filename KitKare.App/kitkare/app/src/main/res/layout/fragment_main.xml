@@ -9,81 +9,85 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".app.views.MainActivity$PlaceholderFragment">
 
-    <!--<ImageView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_centerInParent="true"-->
-    <!--android:alpha="0.5"-->
-    <!--android:scaleType="fitCenter"-->
-    <!--android:src="@drawable/back" />-->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:alpha="0.9"
-        android:orientation="vertical">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:alpha="0.5"-->
+        <!--android:scaleType="fitCenter"-->
+        <!--android:src="@drawable/back" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:alpha="0.9"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textViewWelcomeMsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/tvMainWelcomeMessage"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/darkGrey" />
-
-            <TextView
-                android:id="@+id/textViewWelcomeTxt"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewWelcomeMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/tvMainWelcomeMessage"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/darkGrey" />
+
+                <TextView
+                    android:id="@+id/textViewWelcomeTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/tvMainWelcomeText"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/darkGrey" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+
+                android:scaleType="fitCenter"
+                android:src="@drawable/cat" />
+
+            <LinearLayout
+                android:id="@+id/main_buttons_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/tvMainWelcomeText"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/darkGrey" />
+                tools:ignore="UselessParent">
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:text="@string/btnMainLogin"
+                    android:textColor="@color/colorWhite" />
+
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:text="@string/btnMainRegister"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
         </LinearLayout>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-
-            android:scaleType="fitCenter"
-            android:src="@drawable/cat" />
-
-        <LinearLayout
-            android:id="@+id/main_buttons_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            tools:ignore="UselessParent">
-
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:text="@string/btnMainLogin"
-                android:textColor="@color/colorWhite"
-                android:layout_marginRight="1dp"/>
-
-            <Button
-                android:id="@+id/btnRegister"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/btnMainRegister"
-                android:background="@color/colorAccent"
-                android:textColor="@color/colorWhite" />
-        </LinearLayout>
-    </LinearLayout>
-
+    </ScrollView>
 </RelativeLayout>
