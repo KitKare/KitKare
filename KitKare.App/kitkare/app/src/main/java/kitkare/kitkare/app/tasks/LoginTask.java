@@ -11,10 +11,13 @@ import java.io.IOException;
 
 import kitkare.kitkare.app.common.GlobalConstants;
 import kitkare.kitkare.app.common.Helper;
+import kitkare.kitkare.app.common.SaveSharedPreference;
 import kitkare.kitkare.app.dataModels.UserData;
 import kitkare.kitkare.app.services.AccountService;
 import kitkare.kitkare.app.viewModels.LoginViewModel;
 import kitkare.kitkare.app.views.DashboardActivity;
+import kitkare.kitkare.app.views.MainActivity;
+
 
 public class LoginTask extends AsyncTask<String, Void, String> {
     private Context context;
@@ -57,8 +60,9 @@ public class LoginTask extends AsyncTask<String, Void, String> {
 
                 UserData.setToken(token);
                 UserData.setUsername(userName);
-                Helper.makeText(context, "Hello, " + UserData.getUsername());
+                SaveSharedPreference.setUserName(this.context, UserData.getUsername());
 
+                Helper.makeText(context, "Hello, " + UserData.getUsername());
                 context.startActivity(new Intent(context, DashboardActivity.class));
             } catch (JSONException e) {
                 String errorDescription = jObject.getString("error_description");

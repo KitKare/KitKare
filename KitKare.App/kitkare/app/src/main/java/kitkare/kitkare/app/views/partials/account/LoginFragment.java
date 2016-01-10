@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.views.partials;
+package kitkare.kitkare.app.views.partials.account;
 
 import android.content.Context;
 //import android.support.v4.app.Fragment;

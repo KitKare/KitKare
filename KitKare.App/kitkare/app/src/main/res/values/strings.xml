@@ -9,6 +9,7 @@
     <string name="tvMainWelcomeText">Take care of your cat no matter where you are!</string>
     <string name="tvMainLogin">Login</string>
     <string name="tvMainRegister">Register</string>
+    <string name="tvDashboard">Dashboard</string>
 
     <string name="tvMainLabelEmail">Email</string>
     <string name="tvMainLabelPassword">Password</string>
@@ -19,7 +20,7 @@
 
     <string name="btnMainLogin"><i>Login</i></string>
     <string name="btnMainRegister">Register</string>
-    <string name="title_activity_dashboard">DashboardActivity</string>
-    <string name="tvDashboard">Dashboard</string>
-    <string name="title_activity_test">TestActivity</string>
+    <string name="btnFeed">Feed</string>
+    <string name="btnCamera">Camera</string>
+    <string name="btnVet">Vet History</string>
 </resources>

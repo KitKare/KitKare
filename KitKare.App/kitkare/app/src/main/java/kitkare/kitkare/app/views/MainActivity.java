@@ -2,6 +2,7 @@ package kitkare.kitkare.app.views;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,12 +12,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import kitkare.kitkare.app.common.Helper;
+import kitkare.kitkare.app.common.SaveSharedPreference;
 import kitkare.kitkare.app.common.Validator;
 import kitkare.kitkare.app.services.AccountService;
-import kitkare.kitkare.app.views.partials.LoginFragment;
+import kitkare.kitkare.app.views.partials.account.LoginFragment;
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.views.partials.MainFragment;
-import kitkare.kitkare.app.views.partials.RegisterFragment;
+import kitkare.kitkare.app.views.partials.account.RegisterFragment;
 
 public class MainActivity extends AppCompatActivity {
     public AccountService accountService;
@@ -34,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         validator = new Validator(this);
+
+        if(SaveSharedPreference.getUserName(MainActivity.this).length() != 0)
+        {
+            Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+            startActivity(intent);
+            MainActivity.this.finish();
+        }
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

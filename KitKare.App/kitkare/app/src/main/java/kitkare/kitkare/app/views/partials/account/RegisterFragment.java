@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.views.partials;
+package kitkare.kitkare.app.views.partials.account;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,15 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import kitkare.kitkare.R;
-import kitkare.kitkare.app.common.Validator;
-import kitkare.kitkare.app.services.AccountService;
-import kitkare.kitkare.app.tasks.LoginTask;
 import kitkare.kitkare.app.tasks.RegisterTask;
 import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
 import kitkare.kitkare.app.views.MainActivity;

@@ -1,0 +1,55 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="kitkare.kitkare.app.views.partials.dashboard.DashboardFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.9"
+        android:orientation="vertical">
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+                <!--style="@style/ActivityTitle"-->
+                <!--android:id="@+id/textViewDashboardMsg"-->
+                <!--android:text="@string/tvDashboard" />-->
+
+        <!--</LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+
+            <Button
+                style="@style/DashboardButton"
+                android:id="@+id/btnFeed"
+                android:background="@drawable/catfood"
+                android:text="@string/btnFeed"
+                />
+
+            <Button
+                style="@style/DashboardButton"
+                android:id="@+id/btnCamera"
+                android:text="@string/btnCamera"
+                android:background="@drawable/catcamera" />
+
+            <Button
+                style="@style/DashboardButton"
+                android:id="@+id/btnVet"
+                android:text="@string/btnVet"
+                android:background="@drawable/catvet" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
