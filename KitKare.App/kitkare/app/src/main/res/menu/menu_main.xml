@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".app.views.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_home"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_home"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_logout"
+        android:id="@+id/action_dashboard"
         android:orderInCategory="100"
-        android:title="@string/action_logout"
+        android:title="@string/action_dashboard"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_register"
@@ -21,5 +21,15 @@
         android:id="@+id/action_login"
         android:orderInCategory="100"
         android:title="@string/action_login"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="@string/action_logout"
         app:showAsAction="never" />
 </menu>

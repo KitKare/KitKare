@@ -14,8 +14,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import kitkare.kitkare.R;
+import kitkare.kitkare.app.common.ConnectionChecker;
 import kitkare.kitkare.app.common.GlobalConstants;
 import kitkare.kitkare.app.common.Helper;
+import kitkare.kitkare.app.common.MenuPopulator;
 import kitkare.kitkare.app.common.SaveSharedPreference;
 import kitkare.kitkare.app.dataModels.UserData;
 import kitkare.kitkare.app.services.AccountService;
@@ -39,6 +41,9 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        //TODO background task?
+        ConnectionChecker.checkIfInternetConnection(context);
 
         if(SaveSharedPreference.getUserName(context).length() == 0)
         {
@@ -70,7 +75,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        Helper.prepareOptionsMenu(menu, context);
+        MenuPopulator.prepareOptionsMenu(menu, context);
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -83,7 +88,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        boolean isActionExecuted = Helper.setMenuOptions(item, this);
+        boolean isActionExecuted = MenuPopulator.setMenuOptions(item, this);
         if (isActionExecuted) {
             return isActionExecuted;
         }

@@ -27,4 +27,6 @@
     <string name="action_logout">Logout</string>
     <string name="action_login">Login</string>
     <string name="action_register">Register</string>
+    <string name="action_home">Home</string>
+    <string name="action_dashboard">Dashboard</string>
 </resources>

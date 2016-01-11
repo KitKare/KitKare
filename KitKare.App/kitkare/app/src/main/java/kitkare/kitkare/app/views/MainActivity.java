@@ -16,7 +16,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import kitkare.kitkare.app.common.ConnectionChecker;
 import kitkare.kitkare.app.common.Helper;
+import kitkare.kitkare.app.common.MenuPopulator;
 import kitkare.kitkare.app.common.SaveSharedPreference;
 import kitkare.kitkare.app.common.Validator;
 import kitkare.kitkare.app.services.AccountService;
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Helper.checkIfInternetConnection(context);
+        ConnectionChecker.checkIfInternetConnection(context);
 
         if(SaveSharedPreference.getUserName(MainActivity.this).length() != 0)
         {
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        Helper.prepareOptionsMenu(menu, context);
+        MenuPopulator.prepareOptionsMenu(menu, context);
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        boolean isActionExecuted = Helper.setMenuOptions(item, this);
+        boolean isActionExecuted = MenuPopulator.setMenuOptions(item, this);
         if (isActionExecuted) {
             return isActionExecuted;
         }else{
