@@ -47,26 +47,14 @@
 
                 <TextView
                     android:id="@+id/tvLoginEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="0.6"
-                    android:gravity="fill"
-                    android:text="@string/tvMainLabelEmail"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/darkGrey"
-                    android:textSize="16sp" />
+                    style="@style/AppEditTextLabel"
+                    android:text="@string/tvMainLabelEmail" />
 
                 <EditText
                     android:id="@+id/etLoginEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="0.4"
-                    android:ems="10"
+                    style="@style/AppEditText"
                     android:hint="@string/tvMainLabelEmail"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/darkGrey">
+                    android:inputType="textEmailAddress">
 
                     <requestFocus />
                 </EditText>
@@ -80,26 +68,14 @@
 
                 <TextView
                     android:id="@+id/tvLoginPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="0.6"
-                    android:gravity="fill"
-                    android:text="@string/tvMainLabelPassword"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/darkGrey"
-                    android:textSize="16sp" />
+                    style="@style/AppEditTextLabel"
+                    android:text="@string/tvMainLabelPassword" />
 
                 <EditText
                     android:id="@+id/etLoginPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="0.4"
-                    android:ems="10"
+                    style="@style/AppEditText"
                     android:hint="@string/tvMainLabelPassword"
-                    android:inputType="textPassword"
-                    android:textColor="@color/darkGrey">
+                    android:inputType="textPassword">
 
                     <requestFocus />
                 </EditText>
@@ -127,15 +103,9 @@
 
                 <TextView
                     android:id="@+id/tvDoesNotHaveAccount"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="0.6"
+                    style="@style/AppEditTextLabel"
                     android:gravity="center"
-                    android:text="@string/tvDoesNotHaveAccount"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/darkGrey"
-                    android:textSize="16sp" />
+                    android:text="@string/tvDoesNotHaveAccount" />
 
                 <Button
                     android:id="@+id/btnRegister"

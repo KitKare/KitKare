@@ -23,7 +23,7 @@
     <string name="btnMainRegister">Register</string>
     <string name="btnFeed">Feed</string>
     <string name="btnCamera">Camera</string>
-    <string name="btnVet">Vet</string>
+    <string name="btnVet">Call the Vet</string>
     <string name="action_logout">Logout</string>
     <string name="action_login">Login</string>
     <string name="action_register">Register</string>
