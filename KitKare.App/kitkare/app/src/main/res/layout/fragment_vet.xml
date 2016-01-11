@@ -27,6 +27,13 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/catvet" />
 
+                <Button
+                    android:id="@+id/btnCallVet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent"
+                    android:text="@string/btnCallVet"
+                    android:textColor="@color/colorWhite" />
 
             </LinearLayout>
         </LinearLayout>

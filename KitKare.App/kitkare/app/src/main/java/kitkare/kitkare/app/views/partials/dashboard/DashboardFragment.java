@@ -7,10 +7,12 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import kitkare.kitkare.R;
+import kitkare.kitkare.app.common.Helper;
 import kitkare.kitkare.app.common.OnSwipeTouchListener;
 import kitkare.kitkare.app.views.DashboardActivity;
 
@@ -117,42 +119,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         btnFeed.setOnClickListener(this);
         btnCamera.setOnClickListener(this);
         btnVet.setOnClickListener(this);
-
-        btnFeed.setOnTouchListener(new OnSwipeTouchListener(context) {
-            @Override
-            public void onSwipeRight() {
-                dashboardActivity.getFragment(new FeedFragment(), R.animator.fragment_slide_right,  R.animator.fragment_slide_left);
-            }
-
-            @Override
-            public void onSwipeLeft() {
-                dashboardActivity.getFragment(new FeedFragment());
-            }
-        });
-
-        btnCamera.setOnTouchListener(new OnSwipeTouchListener(context) {
-            @Override
-            public void onSwipeRight() {
-                dashboardActivity.getFragment(new CameraFragment(), R.animator.fragment_slide_right,  R.animator.fragment_slide_left);
-            }
-
-            @Override
-            public void onSwipeLeft() {
-                dashboardActivity.getFragment(new CameraFragment());
-            }
-        });
-
-        btnVet.setOnTouchListener(new OnSwipeTouchListener(context) {
-            @Override
-            public void onSwipeRight() {
-                dashboardActivity.getFragment(new VetFragment(), R.animator.fragment_slide_right,  R.animator.fragment_slide_left);
-            }
-
-            @Override
-            public void onSwipeLeft() {
-                dashboardActivity.getFragment(new VetFragment());
-            }
-        });
     }
 //    /**
 //     * This interface must be implemented by activities that contain this
