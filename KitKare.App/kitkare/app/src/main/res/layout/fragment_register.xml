@@ -146,11 +146,8 @@
 
                 <Button
                     android:id="@+id/btnRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorAccent"
-                    android:text="@string/btnMainRegister"
-                    android:textColor="@color/colorWhite" />
+                    style="@style/AppButton"
+                    android:text="@string/btnMainRegister" />
             </LinearLayout>
 
             <LinearLayout

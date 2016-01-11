@@ -4,6 +4,7 @@ package kitkare.kitkare.app.dataModels;
 public class UserData {
     private static String username;
     private static String token;
+    private static String vetNumber;
 
     public static String getUsername() {
         return username;
@@ -23,5 +24,13 @@ public class UserData {
 
     public static Boolean isLogged(){
         return UserData.token != null;
+    }
+
+    public static String getVetNumber() {
+        return vetNumber;
+    }
+
+    public static void setVetNumber(String vetNumber) {
+        UserData.vetNumber = vetNumber;
     }
 }

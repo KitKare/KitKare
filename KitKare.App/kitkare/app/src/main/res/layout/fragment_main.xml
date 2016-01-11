@@ -72,22 +72,16 @@
 
                 <Button
                     android:id="@+id/btnLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/AppButton"
                     android:layout_marginRight="1dp"
                     android:layout_weight="1"
-                    android:background="@color/colorAccent"
-                    android:text="@string/btnMainLogin"
-                    android:textColor="@color/colorWhite" />
+                    android:text="@string/btnMainLogin" />
 
                 <Button
                     android:id="@+id/btnRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/AppButton"
                     android:layout_weight="1"
-                    android:background="@color/colorAccent"
-                    android:text="@string/btnMainRegister"
-                    android:textColor="@color/colorWhite" />
+                    android:text="@string/btnMainRegister" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

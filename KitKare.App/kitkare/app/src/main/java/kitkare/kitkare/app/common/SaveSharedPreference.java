@@ -13,6 +13,25 @@ public class SaveSharedPreference
         return PreferenceManager.getDefaultSharedPreferences(ctx);
     }
 
+    public static void setKeyValuePair(Context ctx, String key, String value)
+    {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    public static String getKeyValuePair(Context ctx, String key)
+    {
+        return getSharedPreferences(ctx).getString(key, "");
+    }
+
+    public static void removeKeyValuePair(Context ctx, String key)
+    {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.remove(key);
+        editor.commit();
+    }
+
     public static void setUserName(Context ctx, String userName)
     {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();

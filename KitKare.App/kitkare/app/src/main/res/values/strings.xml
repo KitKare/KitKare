@@ -30,4 +30,11 @@
     <string name="action_home">Home</string>
     <string name="action_dashboard">Dashboard</string>
     <string name="btnCallVet">Call Vet</string>
+    <string name="btnPickVet">Pick Number</string>
+    <string name="tvNoVetNumberYet">No phone number picked yet!</string>
+    <string name="btnEditVetNumber">Edit Number</string>
+    <string name="btnDeleteVetNumber">Delete Number</string>
+    <string name="hintCallBtn">Hold button to make a call.</string>
+    <string name="tvVetTitle">Call the Vet</string>
+    <string name="btnVetHistory">Vet History</string>
 </resources>

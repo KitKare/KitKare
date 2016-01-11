@@ -21,20 +21,77 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textViewLoginMsg"
+                    style="@style/ActivityTitle"
+                    android:text="@string/tvVetTitle" />
+
                 <ImageView
                     android:id="@+id/imageViewVet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/catvet" />
 
-                <Button
-                    android:id="@+id/btnCallVet"
+                    <TextView
+                        android:id="@+id/vtVetNumberSaved"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/tvNoVetNumberYet"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/darkGrey" />
+
+                    <Button
+                        android:id="@+id/btnPickVet"
+                        style="@style/AppButton"
+                        android:layout_marginBottom="3dp"
+                        android:text="@string/btnPickVet" />
+
+                <LinearLayout
+                    android:id="@+id/vet_numbers_buttons_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorAccent"
-                    android:text="@string/btnCallVet"
-                    android:textColor="@color/colorWhite" />
+                    android:layout_marginTop="10dp"
+                    tools:ignore="UselessParent">
 
+                    <Button
+                        android:id="@+id/btnEditVetNumber"
+                        style="@style/AppButton"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="1"
+                        android:text="@string/btnEditVetNumber" />
+
+                    <Button
+                        android:id="@+id/btnDeleteVetNumber"
+                        style="@style/AppButton"
+                        android:layout_weight="1"
+                        android:text="@string/btnDeleteVetNumber" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnCallVet"
+                    style="@style/DashboardButton"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/call" />
+
+                <!--<Button-->
+                <!--android:id="@+id/btnCallVet"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@color/colorAccent"-->
+                <!--android:hint="@string/hintCallBtn"-->
+                <!--android:text="@string/btnCallVet"-->
+                <!--android:textColor="@color/colorWhite" />-->
+
+                <Button
+                    android:id="@+id/btnVetHistory"
+                    style="@style/AppButton"
+                    android:text="@string/btnVetHistory" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
