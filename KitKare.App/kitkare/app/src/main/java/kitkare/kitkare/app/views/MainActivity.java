@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadRegister() {
-        getFragment(new RegisterFragment());
+        getFragment(new RegisterFragment(), R.animator.fragment_slide_right, R.animator.fragment_slide_left);
     }
 
     private void getFragment(Fragment fragment){

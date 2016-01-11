@@ -3,11 +3,6 @@
     android:duration="@android:integer/config_shortAnimTime"
     android:interpolator="@android:anim/accelerate_decelerate_interpolator"
     android:propertyName="translationX"
-    android:valueFrom="100%"
-    android:valueTo="0%"
+    android:valueFrom="-1280"
+    android:valueTo="0"
     android:valueType="floatType" />
-<!--<set xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--android:shareInterpolator="false" >-->
-    <!--<translate android:duration="5000" android:fromXDelta="100%" android:toXDelta="0%" />-->
-    <!--<alpha android:duration="5000" android:fromAlpha="0.0" android:toAlpha="1.0" />-->
-<!--</set>-->

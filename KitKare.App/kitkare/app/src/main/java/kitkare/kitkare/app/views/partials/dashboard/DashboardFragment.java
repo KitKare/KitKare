@@ -1,14 +1,17 @@
 package kitkare.kitkare.app.views.partials.dashboard;
 
 import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import kitkare.kitkare.R;
+import kitkare.kitkare.app.common.OnSwipeTouchListener;
 import kitkare.kitkare.app.views.DashboardActivity;
 
 /**
@@ -19,7 +22,7 @@ import kitkare.kitkare.app.views.DashboardActivity;
  * Use the {@link DashboardFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DashboardFragment extends Fragment implements View.OnClickListener  {
+public class DashboardFragment extends Fragment implements View.OnClickListener {
     static Button btnFeed, btnCamera, btnVet;
     private Context context;
     private DashboardActivity dashboardActivity;
@@ -56,7 +59,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 //        fragment.setArguments(args);
 //        return fragment;
 //    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,9 +72,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         btnCamera = (Button) view.findViewById(R.id.btnCamera);
         btnVet = (Button) view.findViewById(R.id.btnVet);
 
-        btnFeed.setOnClickListener(this);
-        btnCamera.setOnClickListener(this);
-        btnVet.setOnClickListener(this);
+        this.attachEvents();
 
         return view;
         //return inflater.inflate(R.layout.fragment_main, container, false);
@@ -108,11 +108,52 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             this.dashboardActivity.getFragment(new FeedFragment());
         } else if (v.getId() == R.id.btnCamera) {
             this.dashboardActivity.getFragment(new CameraFragment());
-        } else if (v.getId() == R.id.btnVet){
+        } else if (v.getId() == R.id.btnVet) {
             this.dashboardActivity.getFragment(new VetFragment());
         }
     }
 
+    private void attachEvents() {
+        btnFeed.setOnClickListener(this);
+        btnCamera.setOnClickListener(this);
+        btnVet.setOnClickListener(this);
+
+        btnFeed.setOnTouchListener(new OnSwipeTouchListener(context) {
+            @Override
+            public void onSwipeRight() {
+                dashboardActivity.getFragment(new FeedFragment(), R.animator.fragment_slide_right,  R.animator.fragment_slide_left);
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                dashboardActivity.getFragment(new FeedFragment());
+            }
+        });
+
+        btnCamera.setOnTouchListener(new OnSwipeTouchListener(context) {
+            @Override
+            public void onSwipeRight() {
+                dashboardActivity.getFragment(new CameraFragment(), R.animator.fragment_slide_right,  R.animator.fragment_slide_left);
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                dashboardActivity.getFragment(new CameraFragment());
+            }
+        });
+
+        btnVet.setOnTouchListener(new OnSwipeTouchListener(context) {
+            @Override
+            public void onSwipeRight() {
+                dashboardActivity.getFragment(new VetFragment(), R.animator.fragment_slide_right,  R.animator.fragment_slide_left);
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                dashboardActivity.getFragment(new VetFragment());
+            }
+        });
+    }
 //    /**
 //     * This interface must be implemented by activities that contain this
 //     * fragment to allow an interaction in this fragment to be communicated
