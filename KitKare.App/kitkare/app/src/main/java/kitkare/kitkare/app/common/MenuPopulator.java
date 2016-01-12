@@ -63,6 +63,13 @@ public class MenuPopulator {
             return true;
         }
 
+        if (id == R.id.action_notify) {
+            String title = context.getResources().getString(R.string.reminder_notification_title);
+            String text  = context.getResources().getString(R.string.reminder_notification_text);
+            Notifier.pushNotification(context, title, text);
+            return true;
+        }
+
         return false;
     }
 

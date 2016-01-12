@@ -37,4 +37,9 @@
     <string name="hintCallBtn">Hold button to make a call.</string>
     <string name="tvVetTitle">Call the Vet</string>
     <string name="btnVetHistory">Vet History</string>
+    <string name="app_notification">KitKare Reminder</string>
+    <string name="reminder_notification_title">Miss your kitty?</string>
+    <string name="reminder_notification_text">Head over to KitKare now!</string>
+    <string name="action_notify">Notify</string>
+
 </resources>
