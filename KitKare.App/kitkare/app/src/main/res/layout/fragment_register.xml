@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".app.views.MainActivity$PlaceholderFragment">
+    tools:context=".app.activities.MainActivity$PlaceholderFragment">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -38,75 +38,94 @@
                     android:text="@string/tvMainRegister" />
             </LinearLayout>
 
-            <LinearLayout
+            <kitkare.kitkare.app.custom.views.EmailField
+                android:id="@+id/efRegisterEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"/>
 
-                <TextView
-                    android:id="@+id/tvLoginEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="0.6"
-                    android:gravity="fill"
-                    android:text="@string/tvMainLabelEmail"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/darkGrey"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/etLoginEmail"
-                    style="@style/AppEditText"
-                    android:hint="@string/tvMainLabelEmail"
-                    android:inputType="textEmailAddress">
-
-                    <requestFocus />
-                </EditText>
-            </LinearLayout>
-
-            <LinearLayout
+            <kitkare.kitkare.app.custom.views.PasswordField
+                android:id="@+id/pfRegisterPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_alignParentTop="true" />
 
-                <TextView
-                    android:id="@+id/tvLoginPassword"
-                    style="@style/AppEditTextLabel"
-                    android:text="@string/tvMainLabelPassword" />
-
-                <EditText
-                    android:id="@+id/etLoginPassword"
-                    style="@style/AppEditText"
-                    android:hint="@string/tvMainLabelPassword"
-                    android:inputType="textPassword">
-
-                    <requestFocus />
-                </EditText>
-            </LinearLayout>
-
-            <LinearLayout
+            <kitkare.kitkare.app.custom.views.PasswordField
+                android:id="@+id/pfRegisterConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_alignParentTop="true" />
 
-                <TextView
-                    android:id="@+id/tvLoginConfirmPassword"
-                    style="@style/AppEditTextLabel"
-                    android:text="@string/tvMainLabelConfirmPassword" />
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:orientation="horizontal">-->
 
-                <EditText
-                    android:id="@+id/etLoginConfirmPassword"
-                    style="@style/AppEditText"
-                    android:hint="@string/tvMainLabelConfirmPassword"
-                    android:inputType="textPassword">
+                <!--<TextView-->
+                    <!--android:id="@+id/tvLoginEmail"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_weight="0.6"-->
+                    <!--android:gravity="fill"-->
+                    <!--android:text="@string/tvMainLabelEmail"-->
+                    <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+                    <!--android:textColor="@color/darkGrey"-->
+                    <!--android:textSize="16sp" />-->
 
-                    <requestFocus />
-                </EditText>
-            </LinearLayout>
+                <!--<EditText-->
+                    <!--android:id="@+id/etLoginEmail"-->
+                    <!--style="@style/AppEditText"-->
+                    <!--android:hint="@string/tvMainLabelEmail"-->
+                    <!--android:inputType="textEmailAddress">-->
+
+                    <!--<requestFocus />-->
+                <!--</EditText>-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tvLoginPassword"-->
+                    <!--style="@style/AppEditTextLabel"-->
+                    <!--android:text="@string/tvMainLabelPassword" />-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/etLoginPassword"-->
+                    <!--style="@style/AppEditText"-->
+                    <!--android:hint="@string/tvMainLabelPassword"-->
+                    <!--android:inputType="textPassword">-->
+
+                    <!--<requestFocus />-->
+                <!--</EditText>-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tvLoginConfirmPassword"-->
+                    <!--style="@style/AppEditTextLabel"-->
+                    <!--android:text="@string/tvMainLabelConfirmPassword" />-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/etLoginConfirmPassword"-->
+                    <!--style="@style/AppEditText"-->
+                    <!--android:hint="@string/tvMainLabelConfirmPassword"-->
+                    <!--android:inputType="textPassword">-->
+
+                    <!--<requestFocus />-->
+                <!--</EditText>-->
+            <!--</LinearLayout>-->
 
             <LinearLayout
                 android:id="@+id/main_buttons_container"
@@ -123,10 +142,7 @@
 
             <ProgressBar
                 android:id="@+id/progressBarRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:indeterminate="true"
-                android:layout_gravity="center_horizontal"/>
+                style="@style/AppProgressBar"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -1,69 +1,72 @@
-package kitkare.kitkare.app.views;
+package kitkare.kitkare.app.activities;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import kitkare.kitkare.R;
 import kitkare.kitkare.app.common.ConnectionChecker;
 import kitkare.kitkare.app.common.MenuPopulator;
 import kitkare.kitkare.app.common.SaveSharedPreference;
+import kitkare.kitkare.app.common.Validator;
 import kitkare.kitkare.app.data.dataServices.AccountService;
-import kitkare.kitkare.app.views.partials.account.LoginFragment;
-import kitkare.kitkare.app.views.partials.dashboard.DashboardFragment;
+import kitkare.kitkare.app.activities.fragments.account.LoginFragment;
+import kitkare.kitkare.R;
+import kitkare.kitkare.app.activities.fragments.MainFragment;
+import kitkare.kitkare.app.activities.fragments.account.RegisterFragment;
 
-public class DashboardActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     private final Context context = this;
 
     public AccountService accountService;
+    public Validator validator;
 
-    public DashboardActivity() {
+    public MainActivity(){
         this(new AccountService());
     }
 
-    public DashboardActivity(AccountService accountService) {
+    public MainActivity(AccountService accountService){
         this.accountService = accountService;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_main);
 
-        //TODO background task?
         ConnectionChecker.checkIfInternetConnection(context);
 
-        if(SaveSharedPreference.getUserName(context).length() == 0)
+        if(SaveSharedPreference.getUserName(MainActivity.this).length() != 0)
         {
-            Intent intent = new Intent(context, MainActivity.class);
+            Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
             startActivity(intent);
-            this.getFragment(new LoginFragment());
-            this.finish();
-            return;
+            MainActivity.this.finish();
         }
 
-//        String pageTitle = getResources().getString(R.string.app_name) + ": " + getResources().getString(R.string.tvDashboard);
-//        this.setTitle(pageTitle);
-//
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        validator = new Validator(this);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         if (savedInstanceState == null) {
-            this.getFragment(new DashboardFragment());
+            this.getFragment(new MainFragment());
         }
     }
 
@@ -85,27 +88,48 @@ public class DashboardActivity extends AppCompatActivity {
         boolean isActionExecuted = MenuPopulator.setMenuOptions(item, this);
         if (isActionExecuted) {
             return isActionExecuted;
+        }else{
+            int id = item.getItemId();
+
+            if (id == R.id.action_login) {
+                this.loadLogin();
+                return true;
+            }
+
+            if (id == R.id.action_register) {
+                this.loadRegister();
+                return true;
+            }
         }
+
 
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
+        if (getFragmentManager().getBackStackEntryCount() > 0 ){
             getFragmentManager().popBackStack();
         } else {
             super.onBackPressed();
         }
     }
 
-    public void getFragment(Fragment fragment) {
+    public void loadLogin() {
+        getFragment(new LoginFragment());
+    }
+
+    public void loadRegister() {
+        getFragment(new RegisterFragment(), R.animator.fragment_slide_right, R.animator.fragment_slide_left);
+    }
+
+    private void getFragment(Fragment fragment){
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.animator.fragment_slide_left, R.animator.fragment_slide_right);
         ft.add(R.id.container, fragment).addToBackStack("tag").commit();
     }
 
-    public void getFragment(Fragment fragment, int enter, int exit) {
+    public void getFragment(Fragment fragment, int enter, int exit){
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setCustomAnimations(enter, exit);
         ft.add(R.id.container, fragment).addToBackStack("tag").commit();

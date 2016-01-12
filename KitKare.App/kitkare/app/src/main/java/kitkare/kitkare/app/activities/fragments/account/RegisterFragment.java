@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.views.partials.account;
+package kitkare.kitkare.app.activities.fragments.account;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,11 +10,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import kitkare.kitkare.R;
+import kitkare.kitkare.app.custom.views.EmailField;
+import kitkare.kitkare.app.custom.views.PasswordField;
 import kitkare.kitkare.app.tasks.RegisterTask;
 import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
-import kitkare.kitkare.app.views.MainActivity;
+import kitkare.kitkare.app.activities.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,10 +48,22 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         //this.accountService = new AccountService();
         //this.validator = new Validator(this.context);
 
+        EmailField emailField = (EmailField) view.findViewById(R.id.efRegisterEmail);
+        TextView tvRegisterEmail = (TextView) emailField.findViewById(R.id.efTextView);
+        tvRegisterEmail.setText(getResources().getString(R.string.tvMainLabelEmail));
+
+        PasswordField passwordField = (PasswordField) view.findViewById(R.id.pfRegisterPassword);
+        TextView tvRegisterPassword = (TextView) passwordField.findViewById(R.id.pfTextView);
+        tvRegisterPassword.setText(getResources().getString(R.string.tvMainLabelPassword));
+
+        PasswordField confirmPasswordField = (PasswordField) view.findViewById(R.id.pfRegisterConfirmPassword);
+        TextView tvRegisterConfirmPassword = (TextView) confirmPasswordField.findViewById(R.id.pfTextView);
+        tvRegisterConfirmPassword.setText(getResources().getString(R.string.tvMainLabelConfirmPassword));
+
         //EditText views
-        email = (EditText) view.findViewById(R.id.etLoginEmail);
-        password = (EditText) view.findViewById(R.id.etLoginPassword);
-        confirmPassword = (EditText) view.findViewById(R.id.etLoginConfirmPassword);
+        email = (EditText) emailField.findViewById(R.id.efEditText);
+        password = (EditText) passwordField.findViewById(R.id.pfEditText);
+        confirmPassword = (EditText) confirmPasswordField.findViewById(R.id.pfEditText);
 
         //Button views
         btnLogin = (Button) view.findViewById(R.id.btnLogin);
@@ -58,7 +73,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         btnRegister.setOnClickListener(this);
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBarRegister);
-        progressBar.setVisibility(View.GONE);
 
         return view;
     }

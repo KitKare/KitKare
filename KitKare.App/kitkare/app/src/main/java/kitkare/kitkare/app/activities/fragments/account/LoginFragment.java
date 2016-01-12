@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.views.partials.account;
+package kitkare.kitkare.app.activities.fragments.account;
 
 import android.content.Context;
 //import android.support.v4.app.Fragment;
@@ -11,14 +11,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import kitkare.kitkare.R;
 import kitkare.kitkare.ScheduledService;
-import kitkare.kitkare.app.common.Helper;
-import kitkare.kitkare.app.common.SaveSharedPreference;
+import kitkare.kitkare.app.custom.views.EmailField;
+import kitkare.kitkare.app.custom.views.PasswordField;
 import kitkare.kitkare.app.tasks.LoginTask;
 import kitkare.kitkare.app.viewModels.LoginViewModel;
-import kitkare.kitkare.app.views.MainActivity;
+import kitkare.kitkare.app.activities.MainActivity;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -45,10 +46,17 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         this.mainActivity = (MainActivity) this.context;
         //this.accountService = new AccountService();
         //this.validator = new Validator(this.context);
+        EmailField emailField = (EmailField) view.findViewById(R.id.efLoginEmail);
+        TextView tvLoginEmail = (TextView) emailField.findViewById(R.id.efTextView);
+        tvLoginEmail.setText(getResources().getString(R.string.tvMainLabelEmail));
+
+        PasswordField passwordField = (PasswordField) view.findViewById(R.id.pfLoginPassword);
+        TextView tvLoginPassword = (TextView) passwordField.findViewById(R.id.pfTextView);
+        tvLoginPassword.setText(getResources().getString(R.string.tvMainLabelPassword));
 
         //EditText views
-        email = (EditText) view.findViewById(R.id.etLoginEmail);
-        password = (EditText) view.findViewById(R.id.etLoginPassword);
+        email = (EditText) emailField.findViewById(R.id.efEditText);
+        password = (EditText) passwordField.findViewById(R.id.pfEditText);
 
         //Button views
         btnLogin = (Button) view.findViewById(R.id.btnLogin);
@@ -58,7 +66,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         btnRegister.setOnClickListener(this);
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBarLogin);
-        progressBar.setVisibility(View.GONE);
 
         return view;
         //return inflater.inflate(R.layout.fragment_main, container, false);

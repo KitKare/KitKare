@@ -1,7 +1,6 @@
 package kitkare.kitkare.app.tasks;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 
 import org.json.JSONException;
@@ -14,7 +13,6 @@ import kitkare.kitkare.app.common.Helper;
 import kitkare.kitkare.app.data.dataServices.AccountService;
 import kitkare.kitkare.app.viewModels.LoginViewModel;
 import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
-import kitkare.kitkare.app.views.DashboardActivity;
 
 public class RegisterTask extends AsyncTask<String, Void, String> {
     private Context context;

@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.views.partials.dashboard;
+package kitkare.kitkare.app.activities.fragments.dashboard;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -19,9 +19,9 @@ import android.widget.Toast;
 
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.common.Helper;
-import kitkare.kitkare.app.common.OnSwipeTouchListener;
+import kitkare.kitkare.app.custom.listeners.OnSwipeTouchListener;
 import kitkare.kitkare.app.common.SaveSharedPreference;
-import kitkare.kitkare.app.views.DashboardActivity;
+import kitkare.kitkare.app.activities.DashboardActivity;
 
 // http://stackoverflow.com/questions/4993063/how-to-call-android-contacts-list-and-select-one-phone-number-from-its-details-s
 // http://stackoverflow.com/questions/4816683/how-to-make-a-phone-call-programatically

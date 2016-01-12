@@ -9,7 +9,7 @@ import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 
 import kitkare.kitkare.R;
-import kitkare.kitkare.app.views.DashboardActivity;
+import kitkare.kitkare.app.activities.DashboardActivity;
 
 // http://stackoverflow.com/questions/6391870/how-exactly-to-use-notification-builder
 public class Notifier {

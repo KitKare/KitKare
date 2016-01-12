@@ -1,9 +1,7 @@
-package kitkare.kitkare.app.views.partials.dashboard;
+package kitkare.kitkare.app.activities.fragments.dashboard;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import kitkare.kitkare.R;
-import kitkare.kitkare.app.common.OnSwipeTouchListener;
-import kitkare.kitkare.app.views.DashboardActivity;
+import kitkare.kitkare.app.custom.listeners.OnSwipeTouchListener;
+import kitkare.kitkare.app.activities.DashboardActivity;
 
 public class FeedFragment extends Fragment {
     static ImageView imageViewCatFood;

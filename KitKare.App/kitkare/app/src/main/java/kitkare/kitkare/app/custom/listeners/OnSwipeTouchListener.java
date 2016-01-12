@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.common;
+package kitkare.kitkare.app.custom.listeners;
 
 import android.content.Context;
 import android.view.GestureDetector;

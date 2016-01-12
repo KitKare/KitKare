@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/efTextView"
+        style="@style/AppEditTextLabel"
+        android:text="@string/tvMainLabelEmail" />
+
+    <EditText
+        android:id="@+id/efEditText"
+        style="@style/AppEditText"
+        android:hint="@string/tvMainLabelEmail"
+        android:inputType="textEmailAddress">
+
+        <requestFocus />
+    </EditText>
+
+</LinearLayout>

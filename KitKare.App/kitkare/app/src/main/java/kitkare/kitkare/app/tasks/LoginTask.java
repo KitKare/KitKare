@@ -15,7 +15,7 @@ import kitkare.kitkare.app.common.SaveSharedPreference;
 import kitkare.kitkare.app.data.dataModels.UserData;
 import kitkare.kitkare.app.data.dataServices.AccountService;
 import kitkare.kitkare.app.viewModels.LoginViewModel;
-import kitkare.kitkare.app.views.DashboardActivity;
+import kitkare.kitkare.app.activities.DashboardActivity;
 
 
 public class LoginTask extends AsyncTask<String, Void, String> {

@@ -7,8 +7,8 @@ import android.view.MenuItem;
 
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.data.dataModels.UserData;
-import kitkare.kitkare.app.views.DashboardActivity;
-import kitkare.kitkare.app.views.MainActivity;
+import kitkare.kitkare.app.activities.DashboardActivity;
+import kitkare.kitkare.app.activities.MainActivity;
 
 public class MenuPopulator {
     public static void prepareOptionsMenu(Menu menu, Context context)

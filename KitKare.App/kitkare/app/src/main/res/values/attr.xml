@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PasswordField">
+        <!--<attr name="FormField_fieldInputType" format="boolean" />-->
+        <!--<attr name="labelPosition" format="enum">-->
+            <!--<enum name="left" value="0"/>-->
+            <!--<enum name="right" value="1"/>-->
+        <!--</attr>-->
+    </declare-styleable>
+    <declare-styleable name="EmailField">
+    </declare-styleable>
+</resources>
