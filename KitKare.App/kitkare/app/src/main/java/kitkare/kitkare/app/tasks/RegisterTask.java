@@ -11,11 +11,10 @@ import java.io.IOException;
 
 import kitkare.kitkare.app.common.GlobalConstants;
 import kitkare.kitkare.app.common.Helper;
-import kitkare.kitkare.app.services.AccountService;
+import kitkare.kitkare.app.data.dataServices.AccountService;
 import kitkare.kitkare.app.viewModels.LoginViewModel;
 import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
 import kitkare.kitkare.app.views.DashboardActivity;
-import kitkare.kitkare.app.views.MainActivity;
 
 public class RegisterTask extends AsyncTask<String, Void, String> {
     private Context context;

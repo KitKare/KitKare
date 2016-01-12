@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.dataModels;
+package kitkare.kitkare.app.data.dataModels;
 
 //TODO: add to sqllite?
 public class UserData {

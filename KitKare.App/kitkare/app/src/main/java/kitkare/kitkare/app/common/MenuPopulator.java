@@ -6,7 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import kitkare.kitkare.R;
-import kitkare.kitkare.app.dataModels.UserData;
+import kitkare.kitkare.app.data.dataModels.UserData;
 import kitkare.kitkare.app.views.DashboardActivity;
 import kitkare.kitkare.app.views.MainActivity;
 

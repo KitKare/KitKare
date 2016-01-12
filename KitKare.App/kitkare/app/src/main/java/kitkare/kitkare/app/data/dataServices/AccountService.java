@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.services;
+package kitkare.kitkare.app.data.dataServices;
 
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.OkHttpClient;

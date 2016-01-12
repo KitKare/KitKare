@@ -3,20 +3,20 @@ package kitkare.kitkare.app.views.partials.account;
 import android.content.Context;
 //import android.support.v4.app.Fragment;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import kitkare.kitkare.R;
-import kitkare.kitkare.app.common.Validator;
-import kitkare.kitkare.app.services.AccountService;
+import kitkare.kitkare.ScheduledService;
+import kitkare.kitkare.app.common.Helper;
+import kitkare.kitkare.app.common.SaveSharedPreference;
 import kitkare.kitkare.app.tasks.LoginTask;
 import kitkare.kitkare.app.viewModels.LoginViewModel;
-import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
 import kitkare.kitkare.app.views.MainActivity;
 
 /**
@@ -83,5 +83,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         LoginTask loginTask = new LoginTask(this.context, this.mainActivity.accountService, user);
         loginTask.execute();
+
+        // start scheduled service to send notifications
+        context.startService(new Intent(context, ScheduledService.class));
     }
 }
