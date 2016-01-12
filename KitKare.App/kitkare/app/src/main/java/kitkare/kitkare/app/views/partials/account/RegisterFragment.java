@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.tasks.RegisterTask;
@@ -26,6 +27,7 @@ import kitkare.kitkare.app.views.MainActivity;
 public class RegisterFragment extends Fragment implements View.OnClickListener {
     static EditText email, password, confirmPassword;
     static Button btnLogin, btnRegister;
+    static ProgressBar progressBar;
     Context context;
     MainActivity mainActivity;
 
@@ -35,7 +37,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_register, container,
+        View view = inflater.inflate(R.layout.fragment_register, container,
                 false);
 
         this.context = container.getContext();
@@ -44,18 +46,21 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         //this.validator = new Validator(this.context);
 
         //EditText views
-        email = (EditText) rootView.findViewById(R.id.etLoginEmail);
-        password = (EditText) rootView.findViewById(R.id.etLoginPassword);
-        confirmPassword = (EditText) rootView.findViewById(R.id.etLoginConfirmPassword);
+        email = (EditText) view.findViewById(R.id.etLoginEmail);
+        password = (EditText) view.findViewById(R.id.etLoginPassword);
+        confirmPassword = (EditText) view.findViewById(R.id.etLoginConfirmPassword);
 
         //Button views
-        btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
-        btnRegister = (Button) rootView.findViewById(R.id.btnRegister);
+        btnLogin = (Button) view.findViewById(R.id.btnLogin);
+        btnRegister = (Button) view.findViewById(R.id.btnRegister);
 
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
 
-        return rootView;
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBarRegister);
+        progressBar.setVisibility(View.GONE);
+
+        return view;
     }
 
     @Override
@@ -63,7 +68,9 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         if (v.getId() == R.id.btnLogin) {
             this.mainActivity.loadLogin();
         } else if (v.getId() == R.id.btnRegister) {
+            progressBar.setVisibility(View.VISIBLE);
             this.registerUser();
+            progressBar.setVisibility(View.GONE);
         }
     }
 

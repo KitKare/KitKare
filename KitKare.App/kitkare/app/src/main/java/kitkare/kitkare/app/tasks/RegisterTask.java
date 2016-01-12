@@ -49,7 +49,6 @@ public class RegisterTask extends AsyncTask<String, Void, String> {
             Helper.makeText(context, "Registration successful");
 
             this.loginUser();
-            context.startActivity(new Intent(context, DashboardActivity.class));
         } else {
             try {
                 JSONObject jObject = new JSONObject(result);

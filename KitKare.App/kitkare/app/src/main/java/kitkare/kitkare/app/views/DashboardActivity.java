@@ -44,6 +44,7 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(intent);
             this.getFragment(new LoginFragment());
             this.finish();
+            return;
         }
 
 //        String pageTitle = getResources().getString(R.string.app_name) + ": " + getResources().getString(R.string.tvDashboard);

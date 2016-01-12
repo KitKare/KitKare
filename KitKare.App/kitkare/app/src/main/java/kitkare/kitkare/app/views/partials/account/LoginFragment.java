@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import kitkare.kitkare.R;
 import kitkare.kitkare.ScheduledService;
@@ -25,6 +26,7 @@ import kitkare.kitkare.app.views.MainActivity;
 public class LoginFragment extends Fragment implements View.OnClickListener {
     static EditText email, password;
     static Button btnLogin, btnRegister;
+    static ProgressBar progressBar;
     Context context;
     MainActivity mainActivity;
     //AccountService accountService;
@@ -55,6 +57,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
 
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBarLogin);
+        progressBar.setVisibility(View.GONE);
+
         return view;
         //return inflater.inflate(R.layout.fragment_main, container, false);
     }
@@ -64,7 +69,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         if (v.getId() == R.id.btnRegister) {
             this.mainActivity.loadRegister();
         } else if (v.getId() == R.id.btnLogin) {
+            progressBar.setVisibility(View.VISIBLE);
             this.loginUser();
+            progressBar.setVisibility(View.GONE);
         }
     }
 
