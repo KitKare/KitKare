@@ -9,4 +9,6 @@
     </declare-styleable>
     <declare-styleable name="EmailField">
     </declare-styleable>
+    <declare-styleable name="ScaleImageView">
+    </declare-styleable>
 </resources>
