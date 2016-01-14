@@ -6,7 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import kitkare.kitkare.R;
-import kitkare.kitkare.app.data.dataModels.UserData;
+import kitkare.kitkare.app.activities.AboutUsActivity;
+import kitkare.kitkare.app.data.remote.models.UserData;
 import kitkare.kitkare.app.activities.DashboardActivity;
 import kitkare.kitkare.app.activities.MainActivity;
 
@@ -55,6 +56,11 @@ public class MenuPopulator {
 
         if (id == R.id.action_home) {
             context.startActivity(new Intent(context, MainActivity.class));
+            return true;
+        }
+
+        if (id == R.id.action_aboutus) {
+            context.startActivity(new Intent(context, AboutUsActivity.class));
             return true;
         }
 

@@ -13,7 +13,7 @@ import kitkare.kitkare.R;
 import kitkare.kitkare.app.common.ConnectionChecker;
 import kitkare.kitkare.app.common.MenuPopulator;
 import kitkare.kitkare.app.common.SaveSharedPreference;
-import kitkare.kitkare.app.data.dataServices.AccountService;
+import kitkare.kitkare.app.data.remote.services.AccountService;
 import kitkare.kitkare.app.activities.fragments.account.LoginFragment;
 import kitkare.kitkare.app.activities.fragments.dashboard.DashboardFragment;
 

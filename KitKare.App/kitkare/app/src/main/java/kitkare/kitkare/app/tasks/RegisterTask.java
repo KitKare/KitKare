@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import kitkare.kitkare.app.common.GlobalConstants;
 import kitkare.kitkare.app.common.Helper;
-import kitkare.kitkare.app.data.dataServices.AccountService;
+import kitkare.kitkare.app.data.remote.services.AccountService;
 import kitkare.kitkare.app.viewModels.LoginViewModel;
 import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
 

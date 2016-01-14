@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 
 import kitkare.kitkare.R;
 
+// http://stackoverflow.com/questions/13914970/why-edittext-in-a-custom-compound-view-is-re-using-the-text-entered-in-another-c
 public class PasswordField extends LinearLayout {
 
     public PasswordField(Context context, AttributeSet attrs) {

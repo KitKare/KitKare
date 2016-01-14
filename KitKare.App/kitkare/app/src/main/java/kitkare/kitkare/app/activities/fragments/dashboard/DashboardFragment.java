@@ -20,7 +20,7 @@ import kitkare.kitkare.app.activities.DashboardActivity;
  * create an instance of this fragment.
  */
 public class DashboardFragment extends Fragment implements View.OnClickListener {
-    static Button btnFeed, btnCamera, btnVet;
+    static Button btnFeed, btnCamera, btnVet, btnTips;
     private Context context;
     private DashboardActivity dashboardActivity;
 
@@ -68,6 +68,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         btnFeed = (Button) view.findViewById(R.id.btnFeed);
         btnCamera = (Button) view.findViewById(R.id.btnCamera);
         btnVet = (Button) view.findViewById(R.id.btnVet);
+        btnTips = (Button) view.findViewById(R.id.btnTips);
 
         this.attachEvents();
 
@@ -107,6 +108,8 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             this.dashboardActivity.getFragment(new CameraFragment());
         } else if (v.getId() == R.id.btnVet) {
             this.dashboardActivity.getFragment(new VetFragment());
+        } else if (v.getId() == R.id.btnTips){
+            this.dashboardActivity.getFragment(new CatCareTipsFragment());
         }
     }
 
@@ -114,6 +117,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         btnFeed.setOnClickListener(this);
         btnCamera.setOnClickListener(this);
         btnVet.setOnClickListener(this);
+        btnTips.setOnClickListener(this);
     }
 //    /**
 //     * This interface must be implemented by activities that contain this

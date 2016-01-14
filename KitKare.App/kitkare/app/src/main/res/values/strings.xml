@@ -11,6 +11,11 @@
     <string name="tvMainRegister">Register</string>
     <string name="tvDashboard">Dashboard</string>
     <string name="tvFeed">Feed</string>
+    <string name="tvAboutUsTitle">About us</string>
+    <string name="tvAboutUsContent">KitKare is a new way to take care of your cat from anywhere in the world.\n\n
+        Supply your furry loved ones with food and water, switch on their lights, quickly get in touch with the vet check on them
+        anytime anywhere and learn tips on how to take best care of them.</string>
+    <string name="tvAboutUsFooter">Telerik Academy 2016: Android Application project</string>
 
     <string name="tvMainLabelEmail">Email</string>
     <string name="tvMainLabelPassword">Password</string>
@@ -19,7 +24,7 @@
     <string name="tvHasAccount">Already have an account?</string>
     <string name="tvDoesNotHaveAccount">Don\'t have an account yet?</string>
 
-    <string name="btnMainLogin"><i>Login</i></string>
+    <string name="btnMainLogin">Login</string>
     <string name="btnMainRegister">Register</string>
     <string name="btnFeed">Feed</string>
     <string name="btnCamera">Camera</string>
@@ -41,5 +46,10 @@
     <string name="reminder_notification_title">Miss your kitty?</string>
     <string name="reminder_notification_text">Head over to KitKare now!</string>
     <string name="action_notify">Notify</string>
+    <string name="action_aboutus">About us</string>
+    <string name="btnTips">Tips</string>
+    <string name="title_activity_about_us">AboutUs</string>
+    <string name="tvAboutUs">About us</string>
+
 
 </resources>

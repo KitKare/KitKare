@@ -52,6 +52,12 @@
                     android:background="@drawable/catvet"
                     android:text="@string/btnVet" />
 
+                <Button
+                    android:id="@+id/btnTips"
+                    style="@style/DashboardButton"
+                    android:background="@drawable/cattips"
+                    android:text="@string/btnTips" />
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
