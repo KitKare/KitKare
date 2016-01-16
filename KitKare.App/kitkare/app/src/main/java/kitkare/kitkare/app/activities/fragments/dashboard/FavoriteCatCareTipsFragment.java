@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -30,9 +31,9 @@ public class FavoriteCatCareTipsFragment extends Fragment implements IUpdatePage
     private ArrayList<CatCareTipViewModel> catCareTips;
     private GridView gvCatCareTips;
     static ImageView imageViewTips;
+    public static TextView noFavoritesYet;
     Context context;
     DashboardActivity dashboardActivity;
-
 
     public FavoriteCatCareTipsFragment() {
     }
@@ -48,6 +49,7 @@ public class FavoriteCatCareTipsFragment extends Fragment implements IUpdatePage
         this.gvCatCareTips = (GridView) view.findViewById(R.id.gvFavoriteCatCareTips);
 
         imageViewTips = (ImageView) view.findViewById(R.id.imageViewTips1);
+        noFavoritesYet = (TextView) view.findViewById(R.id.tvNoFavoritesYet);
 
         this.attachEventListeners();
         this.loadPageData();
@@ -64,6 +66,10 @@ public class FavoriteCatCareTipsFragment extends Fragment implements IUpdatePage
     @Override
     public void updatePageData(ArrayList list) {
         this.catCareTips = list;
+        if (list.size() > 0){
+            noFavoritesYet.setVisibility(View.GONE);
+        }
+
         this.gvCatCareTips.setAdapter(new CatCareTipsAdapter(this.context, this.catCareTips));
     }
 

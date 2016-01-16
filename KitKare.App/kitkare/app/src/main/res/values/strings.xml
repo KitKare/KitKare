@@ -53,6 +53,7 @@
     <string name="tvCatCareTipsTitle">Tips</string>
     <string name="btnFavorites">Favorites</string>
     <string name="tvFavoriteCatCareTipsTitle">Favorite Tips</string>
+    <string name="noFavoritesYet">You don\'t have any favorites yet.</string>
 
 
 </resources>

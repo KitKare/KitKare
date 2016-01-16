@@ -28,6 +28,13 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cattips" />
 
+            <TextView
+                android:id="@+id/tvNoFavoritesYet"
+                style="@style/AppText"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/noFavoritesYet"/>
+
         </LinearLayout>
 
         <GridView
