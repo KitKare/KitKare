@@ -5,5 +5,7 @@ public class GlobalConstants {
     public static final String REGISTER = baseApiUrl + "api/account/register";
     public static final String LOGIN = baseApiUrl + "Token";
     public static final String CATCARETIPS = baseApiUrl + "api/CatCareTips/AllTips";
-   // public static final String TEST = "http://spa2014.bgcoder.com/api/trips";
+    public static final String GIVEFOOD = baseApiUrl + "api/Device/GiveFood";
+
+    // public static final String TEST = "http://spa2014.bgcoder.com/api/trips";
 }

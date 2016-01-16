@@ -103,7 +103,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnFeed) {
-            this.dashboardActivity.getFragment(new FeedFragment());
+            this.dashboardActivity.getFragment(new GiveFoodFragment());
         } else if (v.getId() == R.id.btnCamera) {
             this.dashboardActivity.getFragment(new CameraFragment());
         } else if (v.getId() == R.id.btnVet) {

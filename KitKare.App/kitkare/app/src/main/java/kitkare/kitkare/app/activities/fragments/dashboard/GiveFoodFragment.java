@@ -6,18 +6,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.custom.listeners.OnSwipeTouchListener;
 import kitkare.kitkare.app.activities.DashboardActivity;
+import kitkare.kitkare.app.tasks.GiveFoodTask;
 
-public class FeedFragment extends Fragment {
+public class GiveFoodFragment extends Fragment implements View.OnClickListener{
     static ImageView imageViewCatFood;
+    static Button btnGiveFood;
+
     Context context;
     DashboardActivity dashboardActivity;
 
-    public FeedFragment() {
+    public GiveFoodFragment() {
         // Required empty public constructor
     }
 
@@ -43,7 +47,22 @@ public class FeedFragment extends Fragment {
             }
         });
 
+        btnGiveFood = (Button) view.findViewById(R.id.btnGiveFood);
+        btnGiveFood.setOnClickListener(this);
+
         return view;
         //return inflater.inflate(R.layout.fragment_main, container, false);
+    }
+
+    private void loadPageData() {
+        GiveFoodTask giveFoodTask = new GiveFoodTask(context);
+        giveFoodTask.execute();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btnGiveFood) {
+            loadPageData();
+        }
     }
 }
