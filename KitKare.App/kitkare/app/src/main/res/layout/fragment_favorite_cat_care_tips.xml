@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context="kitkare.kitkare.app.activities.fragments.dashboard.CatCareTipsFragment">
+    tools:context=".app.activities.fragments.dashboard.FavoriteCatCareTipsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,28 +18,20 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textViewCatCareTipsTitle"
+                android:id="@+id/textViewFavoriteCatCareTipsTitle"
                 style="@style/ActivityTitle"
-                android:text="@string/tvCatCareTipsTitle" />
+                android:text="@string/tvFavoriteCatCareTipsTitle" />
 
             <ImageView
-                android:id="@+id/imageViewTips"
+                android:id="@+id/imageViewTips1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/cattips" />
 
-            <Button
-                android:id="@+id/btnFavorites"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@null"
-                android:text="@string/btnFavorites"
-                android:textColor="@color/colorAccent" />
         </LinearLayout>
 
         <GridView
-            android:id="@+id/gvCatCareTips"
+            android:id="@+id/gvFavoriteCatCareTips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
@@ -47,4 +39,5 @@
 
         </GridView>
     </LinearLayout>
+
 </FrameLayout>

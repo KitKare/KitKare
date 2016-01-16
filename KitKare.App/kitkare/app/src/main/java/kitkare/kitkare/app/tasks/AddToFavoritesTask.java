@@ -4,18 +4,23 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import kitkare.kitkare.app.common.Helper;
 import kitkare.kitkare.app.data.local.CatCareTipDataSource;
 import kitkare.kitkare.app.data.local.models.CatCareTip;
+import kitkare.kitkare.app.data.local.services.CatCareTipsService;
 import kitkare.kitkare.app.viewModels.CatCareTipViewModel;
 
 public class AddToFavoritesTask extends AsyncTask<String, Void, CatCareTip> {
     private Context context;
     private CatCareTipViewModel model;
+    CatCareTipsService service;
 
     public AddToFavoritesTask(Context context, CatCareTipViewModel model) {
         this.context = context;
         this.model = model;
+        this.service = new CatCareTipsService();
     }
 
     @Override
@@ -28,10 +33,12 @@ public class AddToFavoritesTask extends AsyncTask<String, Void, CatCareTip> {
         return null;
     }
 
+    protected void onPostExecute(CatCareTip result) {
+        super.onPostExecute(result);
+        Helper.makeText(context, "Tip added to favorites.");
+    }
+
     private void saveToDb(CatCareTipViewModel model) throws SQLException {
-        CatCareTipDataSource catCareDb = new CatCareTipDataSource(context);
-        catCareDb.open();
-        catCareDb.createCatCareTip(model.getTitle(), model.getContent(), model.getCreatedon());
-        catCareDb.close();
+        service.add(context, model);
     }
 }

@@ -82,8 +82,8 @@ public class CatCareTipDataSource {
         catCareTip.setTitle(cursor.getString(1));
         catCareTip.setContent(cursor.getString(2));
         try {
-            catCareTip.setCreatedon(Helper.getDateFormatter().parse(cursor.getString(3)));
-            catCareTip.setModifiedon(Helper.getDateFormatter().parse(cursor.getString(4)));
+            catCareTip.setCreatedon(Helper.getDayDateFormatter().parse(cursor.getString(3)));
+            catCareTip.setModifiedon(Helper.getDayDateFormatter().parse(cursor.getString(4)));
         } catch (ParseException e) {
             e.printStackTrace();
             catCareTip.setCreatedon(new Date());

@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import java.util.Date;
 
 import kitkare.kitkare.app.common.Helper;
+import kitkare.kitkare.app.data.local.models.CatCareTip;
 
 public class CatCareTipViewModel implements Parcelable {
     private long id;
@@ -49,7 +50,7 @@ public class CatCareTipViewModel implements Parcelable {
         this.createdon = createdon;
     }
 
-    public static CatCareTipViewModel FromModel(String json){
+    public static CatCareTipViewModel FromModel(String json) {
         try {
             JSONObject jObject = new JSONObject(json);
             CatCareTipViewModel returnedModel = new CatCareTipViewModel(Parcel.obtain());
@@ -60,17 +61,25 @@ public class CatCareTipViewModel implements Parcelable {
             String createdOnAsString = jObject.getString("CreatedOn");
             try {
                 returnedModel.createdon = Helper.getDateFormatter().parse(createdOnAsString);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 returnedModel.createdon = Helper.getNoMsDateFormatter().parse(createdOnAsString);
             }
 
             return returnedModel;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             Log.v("tag", e.getMessage());
             return null;
         }
+    }
+
+    public static CatCareTipViewModel FromModel(CatCareTip tip) {
+        CatCareTipViewModel returnedModel = new CatCareTipViewModel(Parcel.obtain());
+        returnedModel.id = tip.getId();
+        returnedModel.title = tip.getTitle();
+        returnedModel.content = tip.getContent();
+        returnedModel.createdon = tip.getCreatedon();
+
+        return returnedModel;
     }
 
     @Override
@@ -83,18 +92,20 @@ public class CatCareTipViewModel implements Parcelable {
         dest.writeInt(data);
     }
 
-    public static final Parcelable.Creator<CatCareTipViewModel> CREATOR
-            = new Parcelable.Creator<CatCareTipViewModel>() {
-        public CatCareTipViewModel createFromParcel(Parcel in) {
-            return new CatCareTipViewModel(in);
-        }
+public static final Parcelable.Creator<CatCareTipViewModel> CREATOR
+        = new Parcelable.Creator<CatCareTipViewModel>() {
+    public CatCareTipViewModel createFromParcel(Parcel in) {
+        return new CatCareTipViewModel(in);
+    }
 
-        public CatCareTipViewModel[] newArray(int size) {
-            return new CatCareTipViewModel[size];
-        }
-    };
+    public CatCareTipViewModel[] newArray(int size) {
+        return new CatCareTipViewModel[size];
+    }
+};
 
-    /** recreate object from parcel */
+    /**
+     * recreate object from parcel
+     */
     private CatCareTipViewModel(Parcel in) {
         data = in.readInt();
     }

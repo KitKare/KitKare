@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -20,11 +22,14 @@ import kitkare.kitkare.app.adapters.CatCareTipsAdapter;
 import kitkare.kitkare.app.common.Helper;
 import kitkare.kitkare.app.custom.listeners.OnSwipeTouchListener;
 import kitkare.kitkare.app.data.interfaces.IUpdatePageInfo;
+import kitkare.kitkare.app.data.local.services.CatCareTipsService;
+import kitkare.kitkare.app.tasks.AddToFavoritesTask;
 import kitkare.kitkare.app.tasks.GetAllCatCareTipsTask;
 import kitkare.kitkare.app.viewModels.CatCareTipViewModel;
 
-public class SingleCatCareTipFragment extends Fragment {
+public class SingleCatCareTipFragment extends Fragment implements View.OnClickListener {
     static TextView tvCatCareTipTitle, tvCatCareTipContent, tvCatCareTipCreatedOn;
+    static Button btnAddToFavorites;
     Context context;
     DashboardActivity dashboardActivity;
     CatCareTipViewModel catCareTip;
@@ -50,6 +55,22 @@ public class SingleCatCareTipFragment extends Fragment {
         tvCatCareTipTitle.setText(catCareTip.getTitle());
         tvCatCareTipContent.setText(catCareTip.getContent());
         tvCatCareTipCreatedOn.setText(Helper.getShortDateFormatter().format(catCareTip.getCreatedon()));
+
+        btnAddToFavorites = (Button) view.findViewById(R.id.btnAddToFavorites);
+        btnAddToFavorites.setOnClickListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btnAddToFavorites) {
+            addTipToFavorites();
+        }
+    }
+
+    private void addTipToFavorites() {
+        AddToFavoritesTask addToFavoritesTask = new AddToFavoritesTask(context, catCareTip);
+        addToFavoritesTask.execute();
     }
 }
