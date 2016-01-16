@@ -16,9 +16,9 @@ public class DataSeedTask extends AsyncTask<String, Void, CatCareTip> {
     private Context context;
     private CatCareTipsService service;
 
-    public DataSeedTask(Context context){
-        this(context, new CatCareTipsService());
-    }
+//    public DataSeedTask(Context context){
+//        this(context, new CatCareTipsService());
+//    }
 
     public DataSeedTask(Context context, CatCareTipsService service){
         this.context = context;

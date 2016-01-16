@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         ConnectionChecker.checkIfInternetConnection(context);
 
-        (new DataSeedTask(this.context)).execute("");
+        //(new DataSeedTask(this.context)).execute("");
         if(SaveSharedPreference.getUserName(MainActivity.this).length() != 0)
         {
             Intent intent = new Intent(MainActivity.this, DashboardActivity.class);

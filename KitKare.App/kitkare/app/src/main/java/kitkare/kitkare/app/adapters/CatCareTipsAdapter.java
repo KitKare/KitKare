@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,21 +14,21 @@ import kitkare.kitkare.R;
 import kitkare.kitkare.app.viewModels.CatCareTipViewModel;
 
 public class CatCareTipsAdapter  extends BaseAdapter {
-    private Context mContext;
-    private ArrayList<CatCareTipViewModel> mFinishedPackages;
+    private Context context;
+    private ArrayList<CatCareTipViewModel> catCareTips;
 
-    public CatCareTipsAdapter(Context context, ArrayList<CatCareTipViewModel> finishedPackages) {
-        this.mContext = context;
-        this.mFinishedPackages = finishedPackages;
+    public CatCareTipsAdapter(Context context, ArrayList<CatCareTipViewModel> catCareTips) {
+        this.context = context;
+        this.catCareTips = catCareTips;
     }
     @Override
     public int getCount() {
-        return mFinishedPackages.size();
+        return catCareTips.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return this.mFinishedPackages.get(position);
+        return this.catCareTips.get(position);
     }
 
     @Override
@@ -37,16 +38,17 @@ public class CatCareTipsAdapter  extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cat_care_tip, parent, false);
+        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cat_care_tips, parent, false);
 
-        CatCareTipViewModel finishedPackage = (CatCareTipViewModel) this.getItem(position);
-        TextView tvCatCareTipTitle = (TextView) rootView.findViewById(R.id.tvCatCareTipTitle);
-        TextView tvCatCareTipContent = (TextView) rootView.findViewById(R.id.tvCatCareTipContent);
-        TextView tvCatCareTipCreatedOn = (TextView) rootView.findViewById(R.id.tvCatCareTipCreatedOn);
+        CatCareTipViewModel catCareTip = (CatCareTipViewModel) this.getItem(position);
+        TextView tvCatCareTipTitle = (TextView) rootView.findViewById(R.id.btnCatCareTipTitle);
+//        TextView tvCatCareTipTitle = (TextView) rootView.findViewById(R.id.tvCatCareTipTitle);
+//        TextView tvCatCareTipContent = (TextView) rootView.findViewById(R.id.tvCatCareTipContent);
+//        TextView tvCatCareTipCreatedOn = (TextView) rootView.findViewById(R.id.tvCatCareTipCreatedOn);
 
-        tvCatCareTipTitle.setText(finishedPackage.getTitle());
-        tvCatCareTipContent.setText(finishedPackage.getContent());
-        tvCatCareTipCreatedOn.setText(finishedPackage.getCreatedon().toString());
+        tvCatCareTipTitle.setText(catCareTip.getTitle());
+//        tvCatCareTipContent.setText(catCareTip.getContent());
+//        tvCatCareTipCreatedOn.setText(catCareTip.getCreatedon().toString());
 
         return rootView;
     }

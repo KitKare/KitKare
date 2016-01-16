@@ -1,16 +1,21 @@
 package kitkare.kitkare.app.viewModels;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
+
 import org.json.JSONObject;
 
 import java.util.Date;
 
 import kitkare.kitkare.app.common.Helper;
 
-public class CatCareTipViewModel {
+public class CatCareTipViewModel implements Parcelable {
     private long id;
     private String title;
     private String content;
     private Date createdon;
+    private int data;
 
     public long getId() {
         return id;
@@ -47,7 +52,7 @@ public class CatCareTipViewModel {
     public static CatCareTipViewModel FromModel(String json){
         try {
             JSONObject jObject = new JSONObject(json);
-            CatCareTipViewModel returnedModel = new CatCareTipViewModel();
+            CatCareTipViewModel returnedModel = new CatCareTipViewModel(Parcel.obtain());
 
             returnedModel.id = jObject.getInt("Id");
             returnedModel.title = jObject.getString("Title");
@@ -63,7 +68,34 @@ public class CatCareTipViewModel {
             return returnedModel;
         }
         catch (Exception e){
+            Log.v("tag", e.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(data);
+    }
+
+    public static final Parcelable.Creator<CatCareTipViewModel> CREATOR
+            = new Parcelable.Creator<CatCareTipViewModel>() {
+        public CatCareTipViewModel createFromParcel(Parcel in) {
+            return new CatCareTipViewModel(in);
+        }
+
+        public CatCareTipViewModel[] newArray(int size) {
+            return new CatCareTipViewModel[size];
+        }
+    };
+
+    /** recreate object from parcel */
+    private CatCareTipViewModel(Parcel in) {
+        data = in.readInt();
     }
 }

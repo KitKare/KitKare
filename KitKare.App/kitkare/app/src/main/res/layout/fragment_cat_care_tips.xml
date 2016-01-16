@@ -2,12 +2,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context="kitkare.kitkare.app.activities.fragments.dashboard.CatCareTipsFragment">
 
-    <GridView
-        android:id="@+id/gvCatCareTips"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="1"></GridView>
+        android:alpha="0.9"
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewCatCareTipsTitle"
+                style="@style/ActivityTitle"
+                android:text="@string/tvCatCareTipsTitle" />
+
+            <ImageView
+                android:id="@+id/imageViewTips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cattips" />
+
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/gvCatCareTips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:numColumns="1">
+
+        </GridView>
+    </LinearLayout>
 </FrameLayout>

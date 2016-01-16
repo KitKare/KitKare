@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 public class Helper {
     private static SimpleDateFormat formatter;
     private static SimpleDateFormat noMsFormatter;
+    private static SimpleDateFormat shortFormatter;
 
     public static void makeText(Context context, String message){
         Toast.makeText(
@@ -39,5 +40,14 @@ public class Helper {
         }
 
         return noMsFormatter;
+    }
+
+    public static SimpleDateFormat getShortDateFormatter() {
+        if (shortFormatter == null) {
+            shortFormatter = new SimpleDateFormat("yyyy-MM-dd");
+            shortFormatter.setLenient(false);
+        }
+
+        return shortFormatter;
     }
 }

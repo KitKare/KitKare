@@ -1,62 +1,86 @@
 package kitkare.kitkare.app.tasks;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.AsyncTask;
+import android.os.Handler;
+
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
-import kitkare.kitkare.app.activities.fragments.dashboard.CatCareTipsFragment;
 import kitkare.kitkare.app.common.GlobalConstants;
 
 import kitkare.kitkare.app.data.remote.services.CatCareTipsService;
+import kitkare.kitkare.app.data.interfaces.IUpdatePageInfo;
 import kitkare.kitkare.app.viewModels.CatCareTipViewModel;
-import kitkare.kitkare.app.viewModels.LoginViewModel;
 
 
-public class GetAllCatCareTipsTask extends AsyncTask<String, Void, ArrayList<CatCareTipViewModel>> {
-    private CatCareTipsFragment fragment;
+public class GetAllCatCareTipsTask {
     private CatCareTipsService service;
-    private LoginViewModel user;
+    private String getAllResponse;
+    private Context context;
+    private IUpdatePageInfo page;
+    ArrayList<CatCareTipViewModel> list;
 
-    public GetAllCatCareTipsTask(CatCareTipsFragment context, CatCareTipsService service) {
-        this.fragment = context;
-        this.service = service;
+    public GetAllCatCareTipsTask(Context context, IUpdatePageInfo page) {
+        this.service = new CatCareTipsService();
+        this.context = context;
+        this.page = page;
+        this.list = new ArrayList<>();
     }
 
-    @Override
-    protected ArrayList<CatCareTipViewModel> doInBackground(String... params) {
-        String result = "";
+    public void execute(){
+        Callback callback = new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                getAllResponse = response.body().string();
+                getTipsCollection();
+                postToMainThread();
+            }
+        };
+
         try {
-            service.getAll(GlobalConstants.CATCARETIPS);
-            result = service.getGetAllResponse();
-            JSONArray jObject = null;
-            jObject = new JSONArray(result);
-            ArrayList<CatCareTipViewModel> list = new ArrayList<CatCareTipViewModel>();
-            for(int i=0; i< jObject.length();i++)
-            {
-                CatCareTipViewModel modelToAdd = null;
+            service.getAll(GlobalConstants.CATCARETIPS, callback);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getTipsCollection() {
+        JSONArray jObject;
+        try {
+            jObject = new JSONArray(getAllResponse);
+            for (int i = 0; i < jObject.length(); i++) {
+                CatCareTipViewModel modelToAdd;
                 modelToAdd = CatCareTipViewModel.FromModel(jObject.getString(i));
                 list.add(modelToAdd);
             }
-
-            return list;
         } catch (JSONException e) {
             e.printStackTrace();
-        }catch (Exception e) {
-            e.printStackTrace();
         }
-
-        return new ArrayList<CatCareTipViewModel>();
     }
 
-    @Override
-    protected void onPostExecute(ArrayList<CatCareTipViewModel> result) {
-        super.onPostExecute(result);
-        this.fragment.updatePageInfo(result);
+    private void postToMainThread(){
+        Handler mainHandler = new Handler(context.getMainLooper());
+
+        Runnable updatePage = new Runnable() {
+            @Override
+            public void run() {
+                page.updatePageData(list);
+            }
+        };
+
+        mainHandler.post(updatePage);
     }
 }
 

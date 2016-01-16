@@ -50,6 +50,7 @@
     <string name="btnTips">Tips</string>
     <string name="title_activity_about_us">AboutUs</string>
     <string name="tvAboutUs">About us</string>
+    <string name="tvCatCareTipsTitle">Tips</string>
 
 
 </resources>
