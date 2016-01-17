@@ -57,6 +57,7 @@
     <string name="btnGiveFood">Give Food</string>
     <string name="btnGiveWater">Give Water</string>
     <string name="btnToggleLights">Toggle Lights</string>
+    <string name="title_activity_camera">CameraActivity</string>
 
 
 </resources>

@@ -33,7 +33,10 @@
 
         <activity
             android:name=".app.activities.AboutUsActivity"
-            android:label="@string/title_activity_about_us"></activity>
+            android:label="@string/title_activity_about_us" />
+        <activity
+            android:name=".app.activities.CameraActivity"
+            android:label="@string/title_activity_camera"></activity>
     </application>
 
 </manifest>

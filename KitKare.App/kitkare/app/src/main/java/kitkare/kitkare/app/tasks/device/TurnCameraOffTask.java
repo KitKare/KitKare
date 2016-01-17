@@ -2,6 +2,7 @@ package kitkare.kitkare.app.tasks.device;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 
 import com.squareup.okhttp.Callback;
@@ -10,6 +11,7 @@ import com.squareup.okhttp.Response;
 
 import java.io.IOException;
 
+import kitkare.kitkare.app.activities.DashboardActivity;
 import kitkare.kitkare.app.common.GlobalConstants;
 import kitkare.kitkare.app.common.Helper;
 import kitkare.kitkare.app.data.remote.services.DeviceService;
@@ -53,13 +55,14 @@ public class TurnCameraOffTask {
     private void postToMainThread(final String message){
         Handler mainHandler = new Handler(context.getMainLooper());
 
-        Runnable updatePage = new Runnable() {
+        Runnable backToDashboard = new Runnable() {
             @Override
             public void run() {
+                context.startActivity(new Intent(context, DashboardActivity.class));
                 Helper.makeText(context, message);
             }
         };
 
-        mainHandler.post(updatePage);
+        mainHandler.post(backToDashboard);
     }
 }
