@@ -18,11 +18,13 @@ import kitkare.kitkare.app.common.MenuPopulator;
 import kitkare.kitkare.app.common.SaveSharedPreference;
 import kitkare.kitkare.app.common.Validator;
 import kitkare.kitkare.app.data.local.DataSeedTask;
+import kitkare.kitkare.app.data.remote.models.UserData;
 import kitkare.kitkare.app.data.remote.services.AccountService;
 import kitkare.kitkare.app.activities.fragments.account.LoginFragment;
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.activities.fragments.MainFragment;
 import kitkare.kitkare.app.activities.fragments.account.RegisterFragment;
+import kitkare.kitkare.app.tasks.account.LoginTask;
 
 public class MainActivity extends AppCompatActivity {
     private final Context context = this;
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         //(new DataSeedTask(this.context)).execute("");
         if(SaveSharedPreference.getUserName(MainActivity.this).length() != 0)
         {
+            setToken();
+
             Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
             startActivity(intent);
             MainActivity.this.finish();
@@ -125,15 +129,20 @@ public class MainActivity extends AppCompatActivity {
         getFragment(new RegisterFragment(), R.animator.fragment_slide_right, R.animator.fragment_slide_left);
     }
 
+    public void getFragment(Fragment fragment, int enter, int exit){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(enter, exit);
+        ft.add(R.id.container, fragment).addToBackStack("tag").commit();
+    }
+
     private void getFragment(Fragment fragment){
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.animator.fragment_slide_left, R.animator.fragment_slide_right);
         ft.add(R.id.container, fragment).addToBackStack("tag").commit();
     }
 
-    public void getFragment(Fragment fragment, int enter, int exit){
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.setCustomAnimations(enter, exit);
-        ft.add(R.id.container, fragment).addToBackStack("tag").commit();
+    private void setToken(){
+        String token = SaveSharedPreference.getKeyValuePair(context, LoginTask.PREF_TOKEN);
+        UserData.setToken(token);
     }
 }

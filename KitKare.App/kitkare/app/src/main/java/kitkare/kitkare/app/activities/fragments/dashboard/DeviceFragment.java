@@ -13,10 +13,12 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 import kitkare.kitkare.R;
+import kitkare.kitkare.app.common.Helper;
 import kitkare.kitkare.app.custom.listeners.OnDoubleTapListener;
 import kitkare.kitkare.app.custom.listeners.OnSwipeTouchListener;
 import kitkare.kitkare.app.activities.DashboardActivity;
 import kitkare.kitkare.app.data.interfaces.IUpdatePageData;
+import kitkare.kitkare.app.data.remote.models.UserData;
 import kitkare.kitkare.app.tasks.device.CheckIfLightsAreOnTask;
 import kitkare.kitkare.app.tasks.device.ToggleLightsTask;
 import kitkare.kitkare.app.tasks.device.GiveFoodTask;
@@ -47,7 +49,7 @@ public class DeviceFragment extends Fragment implements IUpdatePageData {
         btnGiveWater = (Button) view.findViewById(R.id.btnGiveWater);
         btnLightsOn = (Button) view.findViewById(R.id.btnToggleLightsOn);
         btnLightsOff = (Button) view.findViewById(R.id.btnToggleLightsOff);
-
+        Helper.makeText(context, UserData.getToken());
         setVisibility();
 
         this.attachEventListeners();

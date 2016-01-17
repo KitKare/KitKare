@@ -19,6 +19,8 @@ import kitkare.kitkare.app.activities.DashboardActivity;
 
 
 public class LoginTask extends AsyncTask<String, Void, String> {
+    public static final String PREF_TOKEN = "KitKareToken";
+
     private Context context;
     private AccountService accountService;
     private LoginViewModel user;
@@ -57,9 +59,11 @@ public class LoginTask extends AsyncTask<String, Void, String> {
                     return;
                 }
 
+                //TODO: add to db?
                 UserData.setToken(token);
                 UserData.setUsername(userName);
                 SaveSharedPreference.setUserName(this.context, UserData.getUsername());
+                SaveSharedPreference.setKeyValuePair(this.context, PREF_TOKEN, UserData.getToken());
 
                 Helper.makeText(context, "Hello, " + UserData.getUsername());
                 context.startActivity(new Intent(context, DashboardActivity.class));

@@ -30,7 +30,6 @@ public abstract class BaseService {
                 .header(CONTENT_TYPE, APPLICATION_JSON)
                 .url(url)
                 .build();
-
         this.client.newCall(request).enqueue(callback);
     }
 }
