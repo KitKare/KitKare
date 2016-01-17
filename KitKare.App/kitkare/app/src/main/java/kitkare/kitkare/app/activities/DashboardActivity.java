@@ -6,8 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.common.ConnectionChecker;
@@ -19,7 +21,6 @@ import kitkare.kitkare.app.activities.fragments.dashboard.DashboardFragment;
 
 public class DashboardActivity extends AppCompatActivity {
     private final Context context = this;
-
     public AccountService accountService;
 
     public DashboardActivity() {
