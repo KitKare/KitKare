@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class FavoriteCatCareTipsFragment extends Fragment implements IUpdatePage
     private ArrayList<CatCareTipViewModel> catCareTips;
     private GridView gvCatCareTips;
     static ImageView imageViewTips;
+    static ProgressBar progressBar;
     public static TextView noFavoritesYet;
     Context context;
     DashboardActivity dashboardActivity;
@@ -47,6 +49,7 @@ public class FavoriteCatCareTipsFragment extends Fragment implements IUpdatePage
 
         imageViewTips = (ImageView) view.findViewById(R.id.imageViewTips1);
         noFavoritesYet = (TextView) view.findViewById(R.id.tvNoFavoritesYet);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBarFavorites);
 
         this.attachEventListeners();
         this.loadPageData();
@@ -68,6 +71,7 @@ public class FavoriteCatCareTipsFragment extends Fragment implements IUpdatePage
         }
 
         this.gvCatCareTips.setAdapter(new CatCareTipsAdapter(this.context, this.catCareTips));
+        progressBar.setVisibility(View.GONE);
     }
 
     private void loadPageData() {

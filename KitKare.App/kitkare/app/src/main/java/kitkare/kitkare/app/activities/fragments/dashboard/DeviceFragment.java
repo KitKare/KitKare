@@ -43,15 +43,15 @@ public class DeviceFragment extends Fragment implements IUpdatePageData {
 
         this.context = container.getContext();
         this.dashboardActivity = (DashboardActivity) this.context;
-        this.checkIfLightsAreOn();
+
         imageViewCatFood = (ImageView) view.findViewById(R.id.imageViewCatFood);
         btnGiveFood = (Button) view.findViewById(R.id.btnGiveFood);
         btnGiveWater = (Button) view.findViewById(R.id.btnGiveWater);
         btnLightsOn = (Button) view.findViewById(R.id.btnToggleLightsOn);
         btnLightsOff = (Button) view.findViewById(R.id.btnToggleLightsOff);
-        Helper.makeText(context, UserData.getToken());
-        setVisibility();
 
+        this.checkIfLightsAreOn();
+        this.setVisibility();
         this.attachEventListeners();
 
         return view;
@@ -70,7 +70,6 @@ public class DeviceFragment extends Fragment implements IUpdatePageData {
     private void toggleLights() {
         ToggleLightsTask toggleLightsTask = new ToggleLightsTask(context);
         toggleLightsTask.execute();
-        setVisibility();
     }
 
     private void checkIfLightsAreOn() {
@@ -118,15 +117,19 @@ public class DeviceFragment extends Fragment implements IUpdatePageData {
         if (list.size() > 0){
             areLightsOn = list.get(0).equals("true");
         }
+
+        setVisibility();
     }
 
     private void setVisibility(){
         if (areLightsOn) {
             btnToggleLights = btnLightsOn;
             btnLightsOff.setVisibility(View.GONE);
+            btnLightsOn.setVisibility(View.VISIBLE);
         } else {
             btnToggleLights = btnLightsOff;
             btnLightsOn.setVisibility(View.GONE);
+            btnLightsOff.setVisibility(View.VISIBLE);
         }
     }
 }

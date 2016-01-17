@@ -37,6 +37,10 @@
 
         </LinearLayout>
 
+        <ProgressBar
+            android:id="@+id/progressBarFavorites"
+            style="@style/AppProgressBar"/>
+
         <GridView
             android:id="@+id/gvFavoriteCatCareTips"
             android:layout_width="match_parent"

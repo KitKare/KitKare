@@ -38,6 +38,10 @@
                 android:textColor="@color/colorAccent" />
         </LinearLayout>
 
+        <ProgressBar
+            android:id="@+id/progressBarTips"
+            style="@style/AppProgressBar"/>
+
         <GridView
             android:id="@+id/gvCatCareTips"
             android:layout_width="match_parent"

@@ -39,21 +39,21 @@ public class ToggleLightsTask {
             @Override
             public void onResponse(Response response) throws IOException {
                 String apiResponse = response.body().string();
-                Boolean areLightson = null;
+                Boolean lightsAreOn = null;
                 try {
                     JSONObject jObject = new JSONObject(apiResponse);
-                    areLightson = jObject.getBoolean("LightsAreOn");
+                    lightsAreOn = jObject.getBoolean("LightsAreOn");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                if (areLightson == null){
+                if (lightsAreOn == null){
                     String message = "Uh oh, something went wrong!";
                     postToMainThread(message);
                     return;
                 }
 
-                if (areLightson) {
+                if (lightsAreOn) {
                     TurnLightsOffTask turnLightsOffTask = new TurnLightsOffTask(context);
                     turnLightsOffTask.execute();
 

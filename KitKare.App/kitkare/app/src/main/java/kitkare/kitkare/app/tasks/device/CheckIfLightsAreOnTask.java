@@ -4,6 +4,7 @@ package kitkare.kitkare.app.tasks.device;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.os.Parcel;
 
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.Request;
@@ -46,14 +47,29 @@ public class CheckIfLightsAreOnTask {
             @Override
             public void onResponse(Response response) throws IOException {
                 String apiResponse = response.body().string();
-                Boolean areLightson = null;
+                Boolean areLightsOn = null;
                 try {
-                    JSONObject jObject = new JSONObject(apiResponse);
-                    areLightson = jObject.getBoolean("LightsAreOn");
-                    list.add(areLightson.toString());
+                    if (apiResponse != null){
+                        JSONObject jObject = new JSONObject(apiResponse);
+                        areLightsOn = jObject.getBoolean("LightsAreOn");
+                        list.add(areLightsOn.toString());
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+//                JSONArray jObject;
+//                try {
+//                    jObject = new JSONArray(apiResponse);
+//
+//                    for (int i = 0; i < jObject.length(); i++) {
+//                        CatCareTipViewModel modelToAdd;
+//                        JSONObject jObject1 = new JSONObject(jObject.get(i).toString());
+//                        areLightsOn = jObject1.getString("LightsAreOn");
+//                        list.add(areLightsOn);
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
 
                 postToMainThread();
             }

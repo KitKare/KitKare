@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class CatCareTipsFragment extends Fragment implements IUpdatePageData, Vi
     private GridView gvCatCareTips;
     static ImageView imageViewTips;
     static Button favoritesButton;
+    static ProgressBar progressBar;
 
     Context context;
     DashboardActivity dashboardActivity;
@@ -47,6 +49,7 @@ public class CatCareTipsFragment extends Fragment implements IUpdatePageData, Vi
 
         imageViewTips = (ImageView) view.findViewById(R.id.imageViewTips);
         favoritesButton = (Button) view.findViewById(R.id.btnFavorites);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBarTips);
 
         this.attachEventListeners();
         this.loadPageData();
@@ -58,6 +61,7 @@ public class CatCareTipsFragment extends Fragment implements IUpdatePageData, Vi
     public void updatePageData(ArrayList list) {
         this.catCareTips = list;
         this.gvCatCareTips.setAdapter(new CatCareTipsAdapter(this.context, this.catCareTips));
+        progressBar.setVisibility(View.GONE);
     }
 
     private void loadPageData() {
@@ -65,7 +69,7 @@ public class CatCareTipsFragment extends Fragment implements IUpdatePageData, Vi
         getAllCatCareTipsTask.execute();
     }
 
-    private void attachEventListeners(){
+    private void attachEventListeners() {
         // http://stackoverflow.com/questions/14675695/how-to-use-onclicklistener-for-grid-view
         gvCatCareTips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
