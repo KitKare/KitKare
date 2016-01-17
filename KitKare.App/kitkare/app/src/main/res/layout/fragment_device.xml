@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context=".app.activities.fragments.dashboard.GiveFoodFragment">
+    tools:context=".app.activities.fragments.dashboard.DeviceFragment">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -32,6 +32,18 @@
                     style="@style/AppButton"
                     android:layout_marginBottom="3dp"
                     android:text="@string/btnGiveFood" />
+
+                <Button
+                    android:id="@+id/btnGiveWater"
+                    style="@style/AppButton"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/btnGiveWater" />
+
+                <Button
+                    android:id="@+id/btnToggleLights"
+                    style="@style/AppButton"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/btnToggleLights" />
 
             </LinearLayout>
         </LinearLayout>

@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.tasks;
+package kitkare.kitkare.app.tasks.device;
 
 
 import android.content.Context;
@@ -32,8 +32,13 @@ public class GiveFoodTask {
 
             @Override
             public void onResponse(Response response) throws IOException {
+                String message = "";
                 if(response.isSuccessful()){
-                    postToMainThread();
+                    message = "Feeding successful!";
+                    postToMainThread(message);
+                }else{
+                    message = "Uh oh, something went wrong!";
+                    postToMainThread(message);
                 }
             }
         };
@@ -45,13 +50,13 @@ public class GiveFoodTask {
         }
     }
 
-    private void postToMainThread(){
+    private void postToMainThread(final String message){
         Handler mainHandler = new Handler(context.getMainLooper());
 
         Runnable updatePage = new Runnable() {
             @Override
             public void run() {
-                Helper.makeText(context, "Feeding successful!");
+                Helper.makeText(context, message);
             }
         };
 

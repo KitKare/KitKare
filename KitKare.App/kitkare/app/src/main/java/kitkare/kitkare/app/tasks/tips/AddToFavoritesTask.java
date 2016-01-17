@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.tasks;
+package kitkare.kitkare.app.tasks.tips;
 
 import android.content.Context;
 import android.os.AsyncTask;

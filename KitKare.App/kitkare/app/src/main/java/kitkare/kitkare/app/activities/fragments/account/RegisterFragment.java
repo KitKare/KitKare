@@ -15,7 +15,7 @@ import android.widget.TextView;
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.custom.views.EmailField;
 import kitkare.kitkare.app.custom.views.PasswordField;
-import kitkare.kitkare.app.tasks.RegisterTask;
+import kitkare.kitkare.app.tasks.account.RegisterTask;
 import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
 import kitkare.kitkare.app.activities.MainActivity;
 

@@ -65,7 +65,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         this.context = container.getContext();
         this.dashboardActivity = (DashboardActivity) this.context;
 
-        btnFeed = (Button) view.findViewById(R.id.btnFeed);
+        btnFeed = (Button) view.findViewById(R.id.btnDevice);
         btnCamera = (Button) view.findViewById(R.id.btnCamera);
         btnVet = (Button) view.findViewById(R.id.btnVet);
         btnTips = (Button) view.findViewById(R.id.btnTips);
@@ -102,8 +102,8 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btnFeed) {
-            this.dashboardActivity.getFragment(new GiveFoodFragment());
+        if (v.getId() == R.id.btnDevice) {
+            this.dashboardActivity.getFragment(new DeviceFragment());
         } else if (v.getId() == R.id.btnCamera) {
             this.dashboardActivity.getFragment(new CameraFragment());
         } else if (v.getId() == R.id.btnVet) {

@@ -8,23 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.activities.DashboardActivity;
-import kitkare.kitkare.app.adapters.CatCareTipsAdapter;
 import kitkare.kitkare.app.common.Helper;
-import kitkare.kitkare.app.custom.listeners.OnSwipeTouchListener;
-import kitkare.kitkare.app.data.interfaces.IUpdatePageInfo;
-import kitkare.kitkare.app.data.local.services.CatCareTipsService;
-import kitkare.kitkare.app.tasks.AddToFavoritesTask;
-import kitkare.kitkare.app.tasks.GetAllCatCareTipsTask;
+import kitkare.kitkare.app.tasks.tips.AddToFavoritesTask;
 import kitkare.kitkare.app.viewModels.CatCareTipViewModel;
 
 public class SingleCatCareTipFragment extends Fragment implements View.OnClickListener {

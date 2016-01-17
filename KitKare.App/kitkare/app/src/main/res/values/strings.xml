@@ -10,7 +10,7 @@
     <string name="tvMainLogin">Login</string>
     <string name="tvMainRegister">Register</string>
     <string name="tvDashboard">Dashboard</string>
-    <string name="tvFeed">Feed</string>
+    <string name="tvFeed">Device</string>
     <string name="tvAboutUsTitle">About us</string>
     <string name="tvAboutUsContent">KitKare is a new way to take care of your cat from anywhere in the world.\n\n
         Supply your furry loved ones with food and water, switch on their lights, quickly get in touch with the vet check on them
@@ -26,7 +26,7 @@
 
     <string name="btnMainLogin">Login</string>
     <string name="btnMainRegister">Register</string>
-    <string name="btnFeed">Give Food</string>
+    <string name="btnDevice">Device</string>
     <string name="btnCamera">Camera</string>
     <string name="btnVet">Call the Vet</string>
     <string name="action_logout">Logout</string>
@@ -55,6 +55,8 @@
     <string name="tvFavoriteCatCareTipsTitle">Favorite Tips</string>
     <string name="noFavoritesYet">You don\'t have any favorites yet.</string>
     <string name="btnGiveFood">Give Food</string>
+    <string name="btnGiveWater">Give Water</string>
+    <string name="btnToggleLights">Toggle Lights</string>
 
 
 </resources>

@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.tasks;
+package kitkare.kitkare.app.tasks.tips;
 
 import android.content.Context;
 import android.os.Handler;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import kitkare.kitkare.app.common.GlobalConstants;
 
 import kitkare.kitkare.app.data.remote.services.CatCareTipsService;
-import kitkare.kitkare.app.data.interfaces.IUpdatePageInfo;
+import kitkare.kitkare.app.data.interfaces.IUpdatePageData;
 import kitkare.kitkare.app.viewModels.CatCareTipViewModel;
 
 
@@ -24,10 +24,10 @@ public class GetAllCatCareTipsTask {
     private CatCareTipsService service;
     private String getAllResponse;
     private Context context;
-    private IUpdatePageInfo page;
+    private IUpdatePageData page;
     ArrayList<CatCareTipViewModel> list;
 
-    public GetAllCatCareTipsTask(Context context, IUpdatePageInfo page) {
+    public GetAllCatCareTipsTask(Context context, IUpdatePageData page) {
         this.service = new CatCareTipsService();
         this.context = context;
         this.page = page;

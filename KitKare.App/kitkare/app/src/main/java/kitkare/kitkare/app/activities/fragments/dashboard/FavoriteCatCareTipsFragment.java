@@ -18,15 +18,12 @@ import java.util.ArrayList;
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.activities.DashboardActivity;
 import kitkare.kitkare.app.adapters.CatCareTipsAdapter;
-import kitkare.kitkare.app.common.Helper;
 import kitkare.kitkare.app.custom.listeners.OnSwipeTouchListener;
-import kitkare.kitkare.app.data.interfaces.IUpdatePageInfo;
-import kitkare.kitkare.app.data.local.services.CatCareTipsService;
-import kitkare.kitkare.app.tasks.GetAllCatCareTipsTask;
-import kitkare.kitkare.app.tasks.GetFavoriteCatCareTips;
+import kitkare.kitkare.app.data.interfaces.IUpdatePageData;
+import kitkare.kitkare.app.tasks.tips.GetFavoriteCatCareTips;
 import kitkare.kitkare.app.viewModels.CatCareTipViewModel;
 
-public class FavoriteCatCareTipsFragment extends Fragment implements IUpdatePageInfo {
+public class FavoriteCatCareTipsFragment extends Fragment implements IUpdatePageData {
     public static final String SINGLE_CAT_CARE_TIP_KEY = "singleCatCareTip";
     private ArrayList<CatCareTipViewModel> catCareTips;
     private GridView gvCatCareTips;

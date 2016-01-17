@@ -35,10 +35,10 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btnFeed"
+                    android:id="@+id/btnDevice"
                     style="@style/DashboardButton"
                     android:background="@drawable/catfood"
-                    android:text="@string/btnFeed" />
+                    android:text="@string/btnDevice" />
 
                 <Button
                     android:id="@+id/btnCamera"

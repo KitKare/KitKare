@@ -1,4 +1,4 @@
-package kitkare.kitkare.app.tasks;
+package kitkare.kitkare.app.tasks.tips;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import kitkare.kitkare.app.data.interfaces.IUpdatePageInfo;
+import kitkare.kitkare.app.data.interfaces.IUpdatePageData;
 import kitkare.kitkare.app.data.local.models.CatCareTip;
 import kitkare.kitkare.app.data.local.services.CatCareTipsService;
 import kitkare.kitkare.app.viewModels.CatCareTipViewModel;
@@ -15,9 +15,9 @@ import kitkare.kitkare.app.viewModels.CatCareTipViewModel;
 public class GetFavoriteCatCareTips extends AsyncTask<String, Void, ArrayList<CatCareTipViewModel>> {
     private Context context;
     CatCareTipsService service;
-    private IUpdatePageInfo page;
+    private IUpdatePageData page;
 
-    public GetFavoriteCatCareTips(Context context, IUpdatePageInfo page){
+    public GetFavoriteCatCareTips(Context context, IUpdatePageData page){
         this.context = context;
         this.service = new CatCareTipsService();
         this.page = page;

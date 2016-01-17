@@ -17,7 +17,7 @@ import kitkare.kitkare.R;
 import kitkare.kitkare.ScheduledService;
 import kitkare.kitkare.app.custom.views.EmailField;
 import kitkare.kitkare.app.custom.views.PasswordField;
-import kitkare.kitkare.app.tasks.LoginTask;
+import kitkare.kitkare.app.tasks.account.LoginTask;
 import kitkare.kitkare.app.viewModels.LoginViewModel;
 import kitkare.kitkare.app.activities.MainActivity;
 

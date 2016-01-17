@@ -1,7 +1,6 @@
 package kitkare.kitkare.app.activities.fragments.dashboard;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -18,13 +17,12 @@ import java.util.ArrayList;
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.activities.DashboardActivity;
 import kitkare.kitkare.app.adapters.CatCareTipsAdapter;
-import kitkare.kitkare.app.common.Helper;
 import kitkare.kitkare.app.custom.listeners.OnSwipeTouchListener;
-import kitkare.kitkare.app.data.interfaces.IUpdatePageInfo;
-import kitkare.kitkare.app.tasks.GetAllCatCareTipsTask;
+import kitkare.kitkare.app.data.interfaces.IUpdatePageData;
+import kitkare.kitkare.app.tasks.tips.GetAllCatCareTipsTask;
 import kitkare.kitkare.app.viewModels.CatCareTipViewModel;
 
-public class CatCareTipsFragment extends Fragment implements IUpdatePageInfo, View.OnClickListener {
+public class CatCareTipsFragment extends Fragment implements IUpdatePageData, View.OnClickListener {
     public static final String SINGLE_CAT_CARE_TIP_KEY = "singleCatCareTip";
     private ArrayList<CatCareTipViewModel> catCareTips;
     private GridView gvCatCareTips;

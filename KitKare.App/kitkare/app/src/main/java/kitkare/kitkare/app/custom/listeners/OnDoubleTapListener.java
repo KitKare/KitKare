@@ -6,6 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /*
+https://github.com/codepath/android_guides/wiki/Gestures-and-Touch-Events
 Usage:
   myView.setOnTouchListener(new OnDoubleTapListener(this) {
     @Override
