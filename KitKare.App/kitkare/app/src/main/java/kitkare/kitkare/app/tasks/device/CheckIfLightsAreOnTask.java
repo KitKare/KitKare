@@ -14,19 +14,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import kitkare.kitkare.app.activities.DashboardActivity;
 import kitkare.kitkare.app.common.GlobalConstants;
 import kitkare.kitkare.app.common.Helper;
+import kitkare.kitkare.app.data.interfaces.IUpdatePageData;
 import kitkare.kitkare.app.data.remote.services.DeviceService;
+import kitkare.kitkare.app.viewModels.CatCareTipViewModel;
 
-public class ToggleLightsTask {
+public class CheckIfLightsAreOnTask {
     private DeviceService service;
     private Context context;
+    private IUpdatePageData page;
+    ArrayList<String> list;
 
-    public ToggleLightsTask(Context context) {
+    public CheckIfLightsAreOnTask(Context context, IUpdatePageData page) {
         this.service = new DeviceService();
         this.context = context;
+        this.page = page;
+        list = new ArrayList<>();
     }
 
     public void execute() {
@@ -43,24 +50,12 @@ public class ToggleLightsTask {
                 try {
                     JSONObject jObject = new JSONObject(apiResponse);
                     areLightson = jObject.getBoolean("LightsAreOn");
+                    list.add(areLightson.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                if (areLightson == null){
-                    String message = "Uh oh, something went wrong!";
-                    postToMainThread(message);
-                    return;
-                }
-
-                if (areLightson) {
-                    TurnLightsOffTask turnLightsOffTask = new TurnLightsOffTask(context);
-                    turnLightsOffTask.execute();
-
-                } else {
-                    TurnLightsOnTask turnLightsOnTask = new TurnLightsOnTask(context);
-                    turnLightsOnTask.execute();
-                }
+                postToMainThread();
             }
         };
 
@@ -71,13 +66,13 @@ public class ToggleLightsTask {
         }
     }
 
-    private void postToMainThread(final String message){
+    private void postToMainThread(){
         Handler mainHandler = new Handler(context.getMainLooper());
 
         Runnable backToDashboard = new Runnable() {
             @Override
             public void run() {
-                Helper.makeText(context, message);
+                page.updatePageData(list);
             }
         };
 

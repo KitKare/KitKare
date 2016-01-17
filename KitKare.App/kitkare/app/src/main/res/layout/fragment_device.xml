@@ -21,30 +21,109 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textViewDeviceTitle"
+                    style="@style/ActivityTitle"
+                    android:layout_weight="1"
+                    android:text="@string/tvDeviceTitle" />
+
                 <ImageView
                     android:id="@+id/imageViewCatFood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/catfood" />
 
-                <Button
-                    android:id="@+id/btnGiveFood"
-                    style="@style/AppButton"
-                    android:layout_marginBottom="3dp"
-                    android:text="@string/btnGiveFood" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnGiveFood"
+                        style="@style/AppButton"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="1"
+                        android:text="@string/btnGiveFood" />
+
+                    <Button
+                        android:id="@+id/btnGiveWater"
+                        style="@style/AppButton"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:text="@string/btnGiveWater" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+
+                    <!--<Button-->
+                        <!--android:id="@+id/btnToggleLights"-->
+                        <!--style="@style/AppButton"-->
+                        <!--android:layout_marginBottom="3dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="@string/btnToggleLights" />-->
+
+                    <!--<Button-->
+                        <!--android:id="@+id/btnToggleLightsOff"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:src="@drawable/light_off" />-->
+
+                    <!--<Button-->
+                        <!--android:id="@+id/btnToggleLightsOn"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:src="@drawable/light_on" />-->
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+                    <Button
+                        android:id="@+id/btnToggleLightsOn"
+                        style="@style/AppButton"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="30dp"
+                        android:textColor="@color/colorAccent"
+                        android:background="@drawable/light_on"
+                        android:text="@string/btnTurnLightsOff" />
+
+                    <Button
+                        android:id="@+id/btnToggleLightsOff"
+                        style="@style/AppButton"
+                        android:layout_width="100dp"
+                        android:layout_height="150dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="30dp"
+                        android:textColor="@color/colorAccent"
+                        android:background="@drawable/light_off"
+                        android:text="@string/btnTurnLightsOn" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+                </LinearLayout>
 
                 <Button
-                    android:id="@+id/btnGiveWater"
+                    android:id="@+id/btnFeedingHistory"
                     style="@style/AppButton"
-                    android:layout_marginBottom="3dp"
-                    android:text="@string/btnGiveWater" />
-
-                <Button
-                    android:id="@+id/btnToggleLights"
-                    style="@style/AppButton"
-                    android:layout_marginBottom="3dp"
-                    android:text="@string/btnToggleLights" />
-
+                    android:text="@string/btnFeedingHistory" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

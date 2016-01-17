@@ -58,6 +58,10 @@
     <string name="btnGiveWater">Give Water</string>
     <string name="btnToggleLights">Toggle Lights</string>
     <string name="title_activity_camera">CameraActivity</string>
+    <string name="tvDeviceTitle">Device</string>
+    <string name="btnTurnLightsOn">Switch on!</string>
+    <string name="btnTurnLightsOff">Switch off!</string>
+    <string name="btnFeedingHistory">Feeding History</string>
 
 
 </resources>

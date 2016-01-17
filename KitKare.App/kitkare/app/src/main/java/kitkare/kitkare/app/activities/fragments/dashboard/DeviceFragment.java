@@ -10,20 +10,25 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.custom.listeners.OnDoubleTapListener;
 import kitkare.kitkare.app.custom.listeners.OnSwipeTouchListener;
 import kitkare.kitkare.app.activities.DashboardActivity;
+import kitkare.kitkare.app.data.interfaces.IUpdatePageData;
+import kitkare.kitkare.app.tasks.device.CheckIfLightsAreOnTask;
 import kitkare.kitkare.app.tasks.device.ToggleLightsTask;
 import kitkare.kitkare.app.tasks.device.GiveFoodTask;
 import kitkare.kitkare.app.tasks.device.GiveWaterTask;
 
-public class DeviceFragment extends Fragment {
+public class DeviceFragment extends Fragment implements IUpdatePageData {
     static ImageView imageViewCatFood;
-    static Button btnGiveFood, btnGiveWater, btnToggleLights;
+    static Button btnGiveFood, btnGiveWater, btnToggleLights, btnLightsOn, btnLightsOff;
 
     private Context context;
     private DashboardActivity dashboardActivity;
+    private boolean areLightsOn;
 
     public DeviceFragment() {
     }
@@ -36,11 +41,14 @@ public class DeviceFragment extends Fragment {
 
         this.context = container.getContext();
         this.dashboardActivity = (DashboardActivity) this.context;
-
+        this.checkIfLightsAreOn();
         imageViewCatFood = (ImageView) view.findViewById(R.id.imageViewCatFood);
         btnGiveFood = (Button) view.findViewById(R.id.btnGiveFood);
         btnGiveWater = (Button) view.findViewById(R.id.btnGiveWater);
-        btnToggleLights = (Button) view.findViewById(R.id.btnToggleLights);
+        btnLightsOn = (Button) view.findViewById(R.id.btnToggleLightsOn);
+        btnLightsOff = (Button) view.findViewById(R.id.btnToggleLightsOff);
+
+        setVisibility();
 
         this.attachEventListeners();
 
@@ -60,9 +68,15 @@ public class DeviceFragment extends Fragment {
     private void toggleLights() {
         ToggleLightsTask toggleLightsTask = new ToggleLightsTask(context);
         toggleLightsTask.execute();
+        setVisibility();
     }
 
-    private void attachEventListeners(){
+    private void checkIfLightsAreOn() {
+        CheckIfLightsAreOnTask checkIfLightsAreOnTask = new CheckIfLightsAreOnTask(context, this);
+        checkIfLightsAreOnTask.execute();
+    }
+
+    private void attachEventListeners() {
         btnGiveFood.setOnTouchListener(new OnDoubleTapListener(context) {
             @Override
             public void onDoubleTap(MotionEvent e) {
@@ -87,7 +101,7 @@ public class DeviceFragment extends Fragment {
         imageViewCatFood.setOnTouchListener(new OnSwipeTouchListener(context) {
             @Override
             public void onSwipeRight() {
-                dashboardActivity.getFragment(new DashboardFragment(), R.animator.fragment_slide_right,  R.animator.fragment_slide_left);
+                dashboardActivity.getFragment(new DashboardFragment(), R.animator.fragment_slide_right, R.animator.fragment_slide_left);
             }
 
             @Override
@@ -95,5 +109,22 @@ public class DeviceFragment extends Fragment {
                 dashboardActivity.getFragment(new DashboardFragment());
             }
         });
+    }
+
+    @Override
+    public void updatePageData(ArrayList list) {
+        if (list.size() > 0){
+            areLightsOn = list.get(0).equals("true");
+        }
+    }
+
+    private void setVisibility(){
+        if (areLightsOn) {
+            btnToggleLights = btnLightsOn;
+            btnLightsOff.setVisibility(View.GONE);
+        } else {
+            btnToggleLights = btnLightsOff;
+            btnLightsOn.setVisibility(View.GONE);
+        }
     }
 }
