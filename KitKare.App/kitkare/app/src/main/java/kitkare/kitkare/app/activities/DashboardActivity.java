@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -67,6 +68,8 @@ public class DashboardActivity extends AppCompatActivity  {
 //                        .setAction("Action", null).show();
             }
         });
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         if (savedInstanceState == null) {
             this.getFragment(new DashboardFragment());

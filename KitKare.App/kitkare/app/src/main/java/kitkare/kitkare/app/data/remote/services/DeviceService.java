@@ -24,6 +24,10 @@ public class DeviceService extends BaseService {
         super.authGet(url, callback);
     }
 
+    public void turnCameraOn(String url, Callback callback) throws Exception {
+        super.authGet(url, callback);
+    }
+
     public void turnCameraOff(String url, Callback callback) throws Exception {
         super.authGet(url, callback);
     }
