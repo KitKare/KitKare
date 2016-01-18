@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -54,6 +55,7 @@ public class DeviceFragment extends Fragment implements IUpdatePageData, View.On
         this.checkIfLightsAreOn();
         this.setVisibility();
         this.attachEventListeners();
+        Helper.makeText(context, "Double tap to activate a device feature.", Toast.LENGTH_LONG);
 
         return view;
     }
@@ -117,14 +119,14 @@ public class DeviceFragment extends Fragment implements IUpdatePageData, View.On
 
     @Override
     public void updatePageData(ArrayList list) {
-        if (list.size() > 0){
+        if (list.size() > 0) {
             areLightsOn = list.get(0).equals("true");
         }
 
         setVisibility();
     }
 
-    private void setVisibility(){
+    private void setVisibility() {
         if (areLightsOn) {
             btnToggleLights = btnLightsOn;
             btnLightsOff.setVisibility(View.GONE);

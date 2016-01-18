@@ -2,11 +2,13 @@ package kitkare.kitkare.app.activities;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.VideoView;
 
 import java.io.File;
@@ -21,6 +23,7 @@ import kitkare.kitkare.app.tasks.device.TurnCameraOnTask;
 public class CameraActivity extends Activity { //implements IUpdatePageData
     private final Context context = this;
     VideoView vidView;
+    ProgressBar progressBar;
    // Object fileResponse;
 
     @Override
@@ -30,14 +33,23 @@ public class CameraActivity extends Activity { //implements IUpdatePageData
 //        TurnCameraOnTask giveWaterTask = new TurnCameraOnTask(context, this);
 //        giveWaterTask.execute();
 
+        progressBar = (ProgressBar) findViewById(R.id.progressBarCamera);
         vidView = (VideoView) findViewById(R.id.cameraView);
         String vidAddress = "android.resource://" + getPackageName() + "/" + R.raw.cat;; //GlobalConstants.TURNCAMERAON; //"http://kitkare.apphb.com/api/Device/TurnCameraOn";
         Uri vidUri = Uri.parse(vidAddress);
         vidView.setVideoURI(vidUri);
-        vidView.start();
+        vidView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+
+            public void onPrepared(MediaPlayer mp)
+            {
+                progressBar.setVisibility(View.GONE);
+                vidView.start();
+            }
+        });
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabCamera);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

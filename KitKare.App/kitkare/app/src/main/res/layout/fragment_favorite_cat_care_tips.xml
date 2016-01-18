@@ -39,7 +39,8 @@
 
         <ProgressBar
             android:id="@+id/progressBarFavorites"
-            style="@style/AppProgressBar"/>
+            style="@style/AppProgressBar"
+            android:visibility="visible"/>
 
         <GridView
             android:id="@+id/gvFavoriteCatCareTips"
