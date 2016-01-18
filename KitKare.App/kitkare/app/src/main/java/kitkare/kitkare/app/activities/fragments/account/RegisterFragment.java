@@ -19,14 +19,6 @@ import kitkare.kitkare.app.tasks.account.RegisterTask;
 import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
 import kitkare.kitkare.app.activities.MainActivity;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link RegisterFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link RegisterFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RegisterFragment extends Fragment implements View.OnClickListener {
     static EditText email, password, confirmPassword;
     static Button btnLogin, btnRegister;
@@ -45,8 +37,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
         this.context = container.getContext();
         this.mainActivity = (MainActivity) this.context;
-        //this.accountService = new AccountService();
-        //this.validator = new Validator(this.context);
 
         EmailField emailField = (EmailField) view.findViewById(R.id.efRegisterEmail);
         TextView tvRegisterEmail = (TextView) emailField.findViewById(R.id.efTextView);

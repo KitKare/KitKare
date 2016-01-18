@@ -24,9 +24,9 @@ import kitkare.kitkare.app.tasks.device.ToggleLightsTask;
 import kitkare.kitkare.app.tasks.device.GiveFoodTask;
 import kitkare.kitkare.app.tasks.device.GiveWaterTask;
 
-public class DeviceFragment extends Fragment implements IUpdatePageData {
+public class DeviceFragment extends Fragment implements IUpdatePageData, View.OnClickListener {
     static ImageView imageViewCatFood;
-    static Button btnGiveFood, btnGiveWater, btnToggleLights, btnLightsOn, btnLightsOff;
+    static Button btnGiveFood, btnGiveWater, btnToggleLights, btnLightsOn, btnLightsOff, btnFeedingHistory;
 
     private Context context;
     private DashboardActivity dashboardActivity;
@@ -49,6 +49,7 @@ public class DeviceFragment extends Fragment implements IUpdatePageData {
         btnGiveWater = (Button) view.findViewById(R.id.btnGiveWater);
         btnLightsOn = (Button) view.findViewById(R.id.btnToggleLightsOn);
         btnLightsOff = (Button) view.findViewById(R.id.btnToggleLightsOff);
+        btnFeedingHistory = (Button) view.findViewById(R.id.btnFeedingHistory);
 
         this.checkIfLightsAreOn();
         this.setVisibility();
@@ -110,6 +111,8 @@ public class DeviceFragment extends Fragment implements IUpdatePageData {
                 dashboardActivity.getFragment(new DashboardFragment());
             }
         });
+
+        btnFeedingHistory.setOnClickListener(this);
     }
 
     @Override
@@ -130,6 +133,13 @@ public class DeviceFragment extends Fragment implements IUpdatePageData {
             btnToggleLights = btnLightsOff;
             btnLightsOn.setVisibility(View.GONE);
             btnLightsOff.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btnFeedingHistory) {
+            this.dashboardActivity.getFragment(new FeedingHistoryFragment());
         }
     }
 }

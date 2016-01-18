@@ -17,7 +17,6 @@ import kitkare.kitkare.app.common.ConnectionChecker;
 import kitkare.kitkare.app.common.MenuPopulator;
 import kitkare.kitkare.app.common.SaveSharedPreference;
 import kitkare.kitkare.app.common.Validator;
-import kitkare.kitkare.app.data.local.DataSeedTask;
 import kitkare.kitkare.app.data.remote.models.UserData;
 import kitkare.kitkare.app.data.remote.services.AccountService;
 import kitkare.kitkare.app.activities.fragments.account.LoginFragment;
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
         ConnectionChecker.checkIfInternetConnection(context);
 
-        //(new DataSeedTask(this.context)).execute("");
         if(SaveSharedPreference.getUserName(MainActivity.this).length() != 0)
         {
             setToken();

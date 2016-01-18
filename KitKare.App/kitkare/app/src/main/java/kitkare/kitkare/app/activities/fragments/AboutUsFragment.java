@@ -24,7 +24,6 @@ public class AboutUsFragment extends Fragment {
     AboutUsActivity aboutUsActivity;
 
     public AboutUsFragment() {
-        // Required empty public constructor
     }
 
     @Override

@@ -28,7 +28,7 @@
     <string name="btnMainRegister">Register</string>
     <string name="btnDevice">Device</string>
     <string name="btnCamera">Camera</string>
-    <string name="btnVet">Call the Vet</string>
+    <string name="btnVet">Vet</string>
     <string name="action_logout">Logout</string>
     <string name="action_login">Login</string>
     <string name="action_register">Register</string>
@@ -62,6 +62,10 @@
     <string name="btnTurnLightsOn">Switch on!</string>
     <string name="btnTurnLightsOff">Switch off!</string>
     <string name="btnFeedingHistory">Feeding History</string>
+    <string name="tvVetHistoryTitle">Vet History</string>
+    <string name="tvVetHistoryLastCall">Last call</string>
+    <string name="tvNoVetHistoryYet">No history yet.</string>
+    <string name="tvFeedingHistoryTitle">Feeding History</string>
 
 
 </resources>

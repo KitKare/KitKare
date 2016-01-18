@@ -1,0 +1,68 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context="kitkare.kitkare.app.activities.fragments.dashboard.VetHistoryFragment">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.9"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewVetHistoryTitle"
+                    style="@style/ActivityTitle"
+                    android:layout_weight="1"
+                    android:text="@string/tvVetHistoryTitle" />
+
+                <kitkare.kitkare.app.custom.views.ScaleImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/catvet" />
+
+                <TextView
+                    android:id="@+id/textViewVetHistoryLastCall"
+                    style="@style/ActivityTitle"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="2"
+                    android:text="@string/tvVetHistoryLastCall" />
+
+                <TextView
+                    android:id="@+id/textViewVetHistoryLastCallDate"
+                    style="@style/AppText"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="2" />
+
+                <TextView
+                    android:id="@+id/textViewVetHistoryVetName"
+                    style="@style/AppText"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="2" />
+
+                <TextView
+                    android:id="@+id/tvNoVetHistoryYet"
+                    style="@style/AppText"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="2"
+                    android:text="@string/tvNoVetHistoryYet"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -21,17 +21,12 @@ import kitkare.kitkare.app.tasks.account.LoginTask;
 import kitkare.kitkare.app.viewModels.LoginViewModel;
 import kitkare.kitkare.app.activities.MainActivity;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class LoginFragment extends Fragment implements View.OnClickListener {
     static EditText email, password;
     static Button btnLogin, btnRegister;
     static ProgressBar progressBar;
     Context context;
     MainActivity mainActivity;
-    //AccountService accountService;
-    //Validator validator;
 
     public LoginFragment() {
     }
@@ -44,8 +39,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         this.context = container.getContext();
         this.mainActivity = (MainActivity) this.context;
-        //this.accountService = new AccountService();
-        //this.validator = new Validator(this.context);
+
         EmailField emailField = (EmailField) view.findViewById(R.id.efLoginEmail);
         TextView tvLoginEmail = (TextView) emailField.findViewById(R.id.efTextView);
         tvLoginEmail.setText(getResources().getString(R.string.tvMainLabelEmail));
@@ -68,7 +62,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         progressBar = (ProgressBar) view.findViewById(R.id.progressBarLogin);
 
         return view;
-        //return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
     @Override

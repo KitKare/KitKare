@@ -11,9 +11,7 @@ import java.io.IOException;
 import kitkare.kitkare.app.viewModels.LoginViewModel;
 import kitkare.kitkare.app.viewModels.RegisterUserViewModel;
 
-public class AccountService {
-    OkHttpClient client = new OkHttpClient();
-
+public class AccountService extends BaseService {
     public String register(String url, RegisterUserViewModel user) throws Exception {
         FormEncodingBuilder builder = new FormEncodingBuilder()
                 .add("email", user.email)
@@ -40,7 +38,7 @@ public class AccountService {
                 .post(body)
                 .build();
 
-        Response response = client.newCall(request).execute();
+        Response response = super.client.newCall(request).execute();
 
         if (!response.isSuccessful()) {
             throw new IOException("Oops, something went wrong! " + response);

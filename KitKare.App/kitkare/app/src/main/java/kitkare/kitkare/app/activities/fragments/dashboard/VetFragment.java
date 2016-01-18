@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
+
 import kitkare.kitkare.R;
 import kitkare.kitkare.app.common.Helper;
 import kitkare.kitkare.app.custom.listeners.OnSwipeTouchListener;
@@ -28,12 +30,14 @@ import kitkare.kitkare.app.activities.DashboardActivity;
 public class VetFragment extends Fragment implements View.OnClickListener {
     static final String PREF_VET_NUMBER = "KitKareVetNumber";
     static final String PREF_VET_NAME = "KitKareVetName";
+    static final String PREF_VET_LAST_CALL = "KitKareLastCall";
 
     static String vetNumber;
     static String vetName;
     static ImageView imageViewVet;
-    static Button callVet, pickVetNumber, editVetNumber, deleteVetNumber;
+    static Button callVet, pickVetNumber, editVetNumber, deleteVetNumber, vetHistory;
     static TextView vetNumberTextView;
+
     Context context;
     DashboardActivity dashboardActivity;
 
@@ -56,6 +60,7 @@ public class VetFragment extends Fragment implements View.OnClickListener {
 
         imageViewVet = (ImageView) view.findViewById(R.id.imageViewVet);
 
+        vetHistory = (Button) view.findViewById(R.id.btnVetHistory);
         vetNumberTextView = (TextView) view.findViewById(R.id.vtVetNumberSaved);
 
         this.getVet();
@@ -103,6 +108,8 @@ public class VetFragment extends Fragment implements View.OnClickListener {
             getDeleteAlert();
         } else if (v.getId() == R.id.btnEditVetNumber){
             pickVetNumber();
+        }else if (v.getId() == R.id.btnVetHistory){
+            this.dashboardActivity.getFragment(new VetHistoryFragment());
         }
     }
 
@@ -122,6 +129,7 @@ public class VetFragment extends Fragment implements View.OnClickListener {
         pickVetNumber.setOnClickListener(this);
         deleteVetNumber.setOnClickListener(this);
         editVetNumber.setOnClickListener(this);
+        vetHistory.setOnClickListener(this);
 
         // http://stackoverflow.com/questions/18911290/perform-both-the-normal-click-and-long-click-at-button
         callVet.setOnLongClickListener(new View.OnLongClickListener() {
@@ -179,7 +187,11 @@ public class VetFragment extends Fragment implements View.OnClickListener {
             return;
         }
 
+        Date timeOfCall = new Date();
+        SaveSharedPreference.setKeyValuePair(context, PREF_VET_LAST_CALL, timeOfCall.toString());
+
         Helper.makeText(context, "Calling...");
+
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + vetNumber));
         startActivity(intent);
