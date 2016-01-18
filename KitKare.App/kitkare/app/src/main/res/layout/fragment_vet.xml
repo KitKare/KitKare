@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="@color/darkBackground"
     tools:context="kitkare.kitkare.app.activities.fragments.dashboard.VetFragment">
 
     <ScrollView
@@ -13,24 +13,27 @@
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:alpha="0.9"
+            android:gravity="center"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewLoginMsg"
+                style="@style/ActivityTitle"
+                android:text="@string/tvVetTitle"
+                android:textColor="@color/colorWhite"/>
+
+            <ImageView
+                android:id="@+id/imageViewVet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/catvet" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:background="@color/colorWhite"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textViewLoginMsg"
-                    style="@style/ActivityTitle"
-                    android:text="@string/tvVetTitle" />
-
-                <ImageView
-                    android:id="@+id/imageViewVet"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/catvet" />
 
                     <TextView
                         android:id="@+id/vtVetNumberSaved"
